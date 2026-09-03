@@ -122,6 +122,7 @@ h1.title{
   border:1px solid var(--line); color:var(--star-dim); padding:7px 14px; border-radius:100px; cursor:pointer; transition:all .25s;
 }
 .today-link:hover{border-color:var(--cur); color:var(--cur);}
+.today-sep{color:var(--star-dim); opacity:0.4; margin:0 2px;}
 
 /* SECTION generic */
 section{position:relative; z-index:1; padding:120px 0;}
@@ -219,6 +220,17 @@ h2.h{font-family:var(--font-display); font-weight:600; font-size:clamp(32px,4.4v
 .pitch-toggle button.on{border-color:var(--pc); color:var(--pc);}
 
 .emblem-row{display:flex; flex-wrap:wrap; gap:22px; margin-bottom:16px;}
+
+.pantheon-list{display:grid; gap:0;}
+.pantheon-row{display:grid; grid-template-columns:130px 1fr; gap:14px; padding:10px 0; border-top:1px solid var(--line);}
+.pantheon-row:first-child{border-top:none;}
+.pantheon-row .pl-label{font-family:var(--font-mono); font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--star-dim);}
+.pantheon-row .pl-text{font-size:12.5px; color:var(--star); line-height:1.55;}
+@media(max-width:520px){.pantheon-row{grid-template-columns:1fr;}}
+
+.sevens-row{display:flex; gap:22px; flex-wrap:wrap;}
+.sevens-stat .ss-val{font-family:var(--font-display); font-size:21px; color:var(--pc); font-weight:600;}
+.sevens-stat .ss-label{font-family:var(--font-mono); font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:var(--star-dim); margin-top:3px;}
 .emblem-chip{display:flex; align-items:center; gap:13px; flex:1 1 190px; min-width:170px;}
 .emblem-chip .atua-emblem{width:52px; height:52px; flex-shrink:0; color:var(--pc);}
 .emblem-chip .atua-emblem svg{width:100%; height:100%; display:block;}
@@ -442,6 +454,116 @@ table.matrix tr:hover td{background:rgba(255,255,255,.02);}
 .photo-slot-input{display:none;}
 .cult-note{font-family:var(--font-mono); font-size:11px; color:var(--star-dim); margin-top:18px; opacity:0.75;}
 
+/* WHARENUI */
+.wharenui-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;}
+@media(max-width:860px){.wharenui-grid{grid-template-columns:1fr;}}
+.wharenui-diagram{width:100%; max-width:360px; margin:0 auto;}
+.wharenui-diagram svg{width:100%; height:auto; display:block;}
+.wharenui-legend{display:grid; gap:12px;}
+.wharenui-row{display:flex; gap:14px; align-items:flex-start; padding:12px 0; border-top:1px solid var(--line);}
+.wharenui-row:first-child{border-top:none;}
+.wh-dot{width:9px; height:9px; border-radius:50%; margin-top:6px; flex-shrink:0;}
+.wh-text h5{font-family:var(--font-display); font-size:15.5px; margin:0 0 2px; font-weight:600;}
+.wh-role{font-family:var(--font-mono); font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--star-dim); margin-bottom:5px;}
+.wh-text p{margin:0; font-size:12.5px; color:var(--star-dim); line-height:1.55;}
+.wharenui-note{font-family:var(--font-mono); font-size:11px; color:var(--star-dim); margin-top:26px; opacity:0.75; max-width:640px;}
+
+/* TIKANGA */
+.tikanga-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden;}
+@media(max-width:700px){.tikanga-grid{grid-template-columns:1fr;}}
+.tikanga-item{background:var(--void-2); padding:18px 22px;}
+.tikanga-item .tterm{font-family:var(--font-display); font-size:17px; color:var(--star); font-weight:600; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+.tikanga-item .tres{font-size:10px; padding:3px 9px; border-radius:100px; border:1px solid; font-family:var(--font-mono); letter-spacing:.03em; text-transform:uppercase;}
+.tikanga-item p{margin:8px 0 0; font-size:13px; color:var(--star-dim); line-height:1.55;}
+
+/* WHAKATAUKI */
+.whaka-card{
+  border:1px solid var(--line); border-radius:20px; padding:52px 40px; text-align:center;
+  max-width:720px; margin:0 auto; background:linear-gradient(160deg, rgba(255,255,255,.03), transparent);
+}
+.whaka-text{
+  font-family:var(--font-display); font-size:clamp(22px,3.2vw,32px); font-weight:600; line-height:1.35;
+  color:var(--star); margin-bottom:18px; transition:opacity .25s;
+}
+.whaka-gloss{font-size:14.5px; color:var(--star-dim); line-height:1.6; margin-bottom:32px; font-style:italic; transition:opacity .25s;}
+.whaka-card .btn{margin:0 auto;}
+
+/* MARAMATAKA */
+.marama-grid{display:grid; grid-template-columns:auto 1fr; gap:48px; align-items:center; margin-bottom:44px;}
+@media(max-width:800px){.marama-grid{grid-template-columns:1fr; justify-items:center; text-align:center;}}
+.marama-wheel{width:240px; flex-shrink:0;}
+.marama-wheel svg{width:100%; height:auto; display:block;}
+.marama-wheel-note{font-family:var(--font-mono); font-size:10.5px; color:var(--star-dim); text-align:center; margin-top:12px; opacity:0.7; max-width:240px;}
+.marama-tonight{max-width:440px;}
+.marama-name{font-family:var(--font-display); font-size:34px; font-weight:600; color:var(--star); margin-bottom:10px;}
+.marama-badge{
+  display:inline-block; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+  padding:5px 13px; border-radius:100px; border:1px solid; margin-bottom:16px;
+}
+.marama-guidance{font-size:14.5px; color:var(--star-dim); line-height:1.65; margin:0;}
+.marama-list{display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:10px;}
+.marama-row{border:1px solid var(--line); border-radius:10px; padding:12px 14px; display:flex; align-items:center; gap:10px;}
+.marama-row.is-tonight{border-color:var(--aurum); background:rgba(207,157,78,0.07);}
+.marama-row .mr-n{font-family:var(--font-mono); font-size:10px; color:var(--star-dim); width:20px; flex-shrink:0;}
+.marama-row .mr-dot{width:8px; height:8px; border-radius:50%; flex-shrink:0;}
+.marama-row .mr-name{font-family:var(--font-display); font-size:13.5px; flex:1; line-height:1.2;}
+.marama-row .mr-energy{font-family:var(--font-mono); font-size:9px; text-transform:uppercase; color:var(--star-dim); white-space:nowrap;}
+
+/* COSMOLOGY */
+.cosmo-stages{display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:14px; align-items:center;}
+.newyear-block{border-top:1px solid var(--line); padding-top:44px; margin-top:8px;}
+.newyear-title{font-family:var(--font-display); font-weight:600; font-size:clamp(26px,3.4vw,38px); margin:0 0 18px;}
+
+/* WHAKAPAPA TREE */
+.wp-tree{display:flex; flex-direction:column; align-items:center;}
+.wp-parents{display:flex; align-items:center; gap:18px;}
+.wp-parent{border:1px solid var(--line); border-radius:14px; padding:16px 26px; text-align:center;}
+.wp-parent h5{font-family:var(--font-display); font-size:17px; margin:0 0 4px; font-weight:600;}
+.wp-parent .wp-role{font-family:var(--font-mono); font-size:10px; color:var(--star-dim); text-transform:uppercase; letter-spacing:.05em;}
+.wp-amp{font-family:var(--font-display); font-size:20px; color:var(--star-dim); opacity:0.6;}
+.wp-stem{width:2px; height:32px; background:var(--line);}
+.wp-bar{height:1px; background:var(--line); width:100%; max-width:680px;}
+.wp-children{display:flex; gap:14px; flex-wrap:wrap; justify-content:center; padding-top:24px;}
+.wp-child{border:1px solid var(--line); border-radius:12px; padding:14px 16px; text-align:center; min-width:126px;}
+.wp-child .wp-dot{width:8px; height:8px; border-radius:50%; margin:0 auto 9px;}
+.wp-child h6{font-family:var(--font-display); font-size:14px; margin:0 0 3px; font-weight:600;}
+.wp-child .wp-crole{font-family:var(--font-mono); font-size:9px; color:var(--star-dim); text-transform:uppercase; letter-spacing:.03em; line-height:1.4;}
+@media(max-width:700px){.cosmo-stages{grid-template-columns:1fr; gap:8px;}}
+.cosmo-stage{text-align:center; padding:20px 14px; border:1px solid var(--line); border-radius:16px;}
+.cosmo-icon{width:48px; height:48px; margin:0 auto 14px; color:var(--aurum);}
+.cosmo-icon svg{width:100%; height:100%; display:block;}
+.cosmo-stage h4{font-family:var(--font-display); font-size:18px; margin:0 0 6px; font-weight:600;}
+.cosmo-stage p{font-size:12.5px; color:var(--star-dim); margin:0; line-height:1.5;}
+.cosmo-arrow{color:var(--star-dim); font-size:20px; opacity:0.4; text-align:center;}
+@media(max-width:700px){.cosmo-arrow{transform:rotate(90deg); margin:2px 0;}}
+
+/* TE IKAROA */
+.ikaroa-intro{font-size:16px; line-height:1.8; color:var(--star-dim); max-width:640px; margin-bottom:34px;}
+
+/* PRONUNCIATION */
+.pron-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:14px;}
+.pron-card{border:1px solid var(--line); border-radius:14px; padding:20px;}
+.pron-sound{font-family:var(--font-display); font-size:26px; color:var(--aurum); margin-bottom:8px; font-weight:600;}
+.pron-card h5{font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--star-dim); margin:0 0 8px;}
+.pron-card p{font-size:13px; color:var(--star-dim); line-height:1.6; margin:0;}
+
+/* SPECTRUM BAR */
+.spectrum-outer{position:relative; margin:8px 0 70px;}
+.spectrum-track{height:10px; border-radius:6px; background:linear-gradient(to right, #d1453c, #d9803d, #d3ab3f, #4f8f6b, #3f7ea8, #5a5aa0, #8a5aa8);}
+.spectrum-marker{position:absolute; top:-5px; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center;}
+.spectrum-marker .sm-dot{width:10px; height:10px; border-radius:50%; background:var(--void); border:2px solid var(--star); box-sizing:border-box;}
+.spectrum-marker .sm-label{margin-top:10px; text-align:center;}
+.spectrum-marker .sm-name{font-family:var(--font-display); font-size:11.5px; color:var(--star); white-space:nowrap;}
+.spectrum-marker .sm-nm{font-family:var(--font-mono); font-size:9px; color:var(--star-dim); margin-top:1px; white-space:nowrap;}
+
+/* HOW TO USE */
+.howto-list{border:1px solid var(--line); border-radius:16px; overflow:hidden;}
+.howto-row{display:grid; grid-template-columns:44px 1fr; gap:18px; padding:20px 24px; border-top:1px solid var(--line); align-items:start;}
+.howto-row:first-child{border-top:none;}
+.howto-num{font-family:var(--font-mono); font-size:13px; color:var(--aurum); padding-top:2px;}
+.howto-row h5{font-family:var(--font-display); font-size:16px; margin:0 0 4px; font-weight:600;}
+.howto-row p{font-size:13.5px; color:var(--star-dim); line-height:1.6; margin:0;}
+
 footer{padding:80px 0 50px; border-top:1px solid var(--line);}
 .foot-grid{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:30px;}
 .foot-word{font-family:var(--font-display); font-size:clamp(40px,6vw,72px); color:rgba(242,237,224,.08); letter-spacing:-.01em;}
@@ -480,8 +602,12 @@ footer{padding:80px 0 50px; border-top:1px solid var(--line);}
 <div class="today-banner" id="todayBanner">
   <div class="wrap today-inner">
     <span class="today-dot" id="todayDot"></span>
-    <span class="today-text">Today is <b id="todayDay">—</b> — <b id="todayName">—</b> is the centre of the day.</span>
+    <span class="today-text">Today: <b id="todayName">—</b></span>
     <button class="today-link" id="todayLink">Go there ↓</button>
+    <span class="today-sep">·</span>
+    <span class="today-dot" id="moonDot"></span>
+    <span class="today-text">Tonight: <b id="moonName">—</b> <span id="moonEnergy"></span></span>
+    <button class="today-link" id="moonLink">Go there ↓</button>
   </div>
 </div>
 
@@ -525,6 +651,23 @@ footer{padding:80px 0 50px; border-top:1px solid var(--line);}
   </div>
 </section>
 
+<section id="cosmology">
+  <div class="wrap reveal" style="max-width:760px;">
+    <p class="eyebrow">Before the Beginning</p>
+    <h2 class="h">Te Kore, Te Pō, Te Ao Mārama.</h2>
+    <p class="lede" style="margin-bottom:28px;">Everything below assumes an origin story it never quite tells. This is that story, in brief.</p>
+    <div class="cosmo-stages" id="cosmoStages"></div>
+    <p class="lede" style="margin:36px 0 16px;">In the beginning was Te Kore — not emptiness exactly, but pure potential, form not yet decided. From Te Kore came Te Pō, the long night, successive stages of darkness in which the atua gestated, unborn. Within that darkness, Ranginui the Sky Father lay locked in a tight embrace with Papatūānuku the Earth Mother, their children crushed in permanent dark between them.</p>
+    <p class="lede" style="margin-bottom:16px;">The children debated what to do. It was Tāne — god of forests and light, already paired with the Third Eye above — who succeeded, bracing his shoulders against the earth and pushing with his legs until his parents tore apart. Ranginui was forced up into the sky; Papatūānuku remained below as the earth. Light flooded the space between them for the first time: Te Ao Mārama, the world of light — the ordinary world every centre on this page lives inside.</p>
+    <p class="lede">Rain is said to be Ranginui's tears, still falling for the wife he lost. Mist rising from the ground at dawn is Papatūānuku's sighs, reaching back up for him. It is why Root, below, is paired with Papatūānuku — the ground everything stands on — and Crown is paired with Ranginui — the sky everything opens into.</p>
+    <div class="whakapapa-block">
+      <p class="eyebrow" style="margin:44px 0 18px;">Whakapapa</p>
+      <p class="lede" style="margin-bottom:26px;">The children who forced their parents apart are the same atua scattered across the panels above. Here they are as one family.</p>
+      <div class="wp-tree" id="whakapapaTree"></div>
+    </div>
+  </div>
+</section>
+
 <section id="spine" style="padding-top:40px;">
   <div class="wrap">
     <div class="section-head reveal">
@@ -563,8 +706,54 @@ footer{padding:80px 0 50px; border-top:1px solid var(--line);}
       <h2 class="h">Seasons, and the stars that rise with them.</h2>
       <p class="lede">Each season carries a pair of centres. Above them, the heliacal rising of Matariki (the Pleiades) marks a portal of reflection — honouring past cycles, taking stock of stores, and setting intention for what's ahead.</p>
     </div>
+
+    <div class="newyear-block">
+      <p class="eyebrow" style="margin-bottom:10px;">Te Mātahi o te Tau</p>
+      <h3 class="newyear-title">The Māori New Year.</h3>
+      <p class="lede" style="margin-bottom:30px;">Matariki isn't only a star cluster — the days around its rise mark the Māori New Year itself. Its timing isn't fixed to a calendar date: traditionally it's read from the sky, when Matariki reappears low on the north-eastern horizon just before dawn in midwinter, followed by the next new moon. Where Matariki sits low or unseen, some iwi read Puanga (Rigel) instead. In 2022 it became Aotearoa New Zealand's first public holiday grounded in Māori tradition, on a date recalculated by astronomers and iwi each year rather than fixed.</p>
+      <div class="cosmo-stages" id="newyearStages"></div>
+    </div>
+
+    <div class="section-head" style="margin-top:56px;">
+      <p class="eyebrow">Quick Reference</p>
+      <h2 class="h" style="font-size:clamp(24px,3vw,32px);">The seasons and the stars.</h2>
+    </div>
     <div class="season-grid" id="seasonGrid"></div>
     <div class="matariki-grid" id="matarikiGrid"></div>
+  </div>
+</section>
+
+<section id="ikaroa">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <p class="eyebrow">Te Ikaroa</p>
+      <h2 class="h">The wider night sky.</h2>
+    </div>
+    <p class="ikaroa-intro">The spiral of stars behind the figure in this site's opening image isn't abstract décor — it's Te Ikaroa, the Milky Way, the great band of stars this whole tradition of sky-reading sits inside. Matariki is one cluster within it. A few of the other stars used for navigation and seasonal marking sit below.</p>
+    <div class="matariki-grid" id="ikaroaGrid"></div>
+  </div>
+</section>
+
+<section id="maramataka">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <p class="eyebrow">Te Maramataka</p>
+      <h2 class="h">The Māori lunar calendar.</h2>
+      <p class="lede">Thirty named nights of the moon, each carrying its own energy — from the rest of Whiro's dark moon to the peak of Rākaunui's full moon. Names and emphasis vary between iwi; this follows a commonly taught general version, not a single authoritative source.</p>
+    </div>
+    <div class="marama-grid">
+      <div>
+        <div class="marama-wheel" id="maramaWheel"></div>
+        <p class="marama-wheel-note">Calculated from lunar-cycle astronomy — regional maramataka observance may fall a night earlier or later.</p>
+      </div>
+      <div class="marama-tonight">
+        <p class="eyebrow" style="margin-bottom:8px;">Tonight</p>
+        <div class="marama-name" id="maramaName">—</div>
+        <span class="marama-badge" id="maramaBadge">—</span>
+        <p class="marama-guidance" id="maramaGuidance">—</p>
+      </div>
+    </div>
+    <div class="marama-list" id="maramaList"></div>
   </div>
 </section>
 
@@ -589,6 +778,81 @@ footer{padding:80px 0 50px; border-top:1px solid var(--line);}
     </div>
     <div class="cult-grid" id="kaitiakiGrid"></div>
     <p class="cult-note">Click any frame to drop in your own photo — previews stay in your browser for this session only.</p>
+  </div>
+</section>
+
+<section id="wharenui">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <p class="eyebrow">Te Wharenui</p>
+      <h2 class="h">The meeting house as body.</h2>
+      <p class="lede">A traditional wharenui is built as the body of an ancestor — ridgepole as spine, carved head at the gable, a heart post holding up the centre. The pairing below is this site's own resonance-mapping onto that structure, not a traditional teaching in itself.</p>
+    </div>
+    <div class="wharenui-grid">
+      <div class="wharenui-diagram" id="wharenuiDiagram"></div>
+      <div class="wharenui-legend" id="wharenuiLegend"></div>
+    </div>
+  </div>
+</section>
+
+<section id="toi">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <p class="eyebrow">Ngā Toi</p>
+      <h2 class="h">The traditional arts.</h2>
+      <p class="lede">Seven crafts, one per centre — from the grounded permanence of carving to the transcendent lift of song.</p>
+    </div>
+    <div class="cult-grid" id="toiGrid"></div>
+    <p class="cult-note">Click any frame to drop in your own photo — previews stay in your browser for this session only.</p>
+  </div>
+</section>
+
+<section id="rakau">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <p class="eyebrow">Ngā Rākau</p>
+      <h2 class="h">Tools & weapons.</h2>
+      <p class="lede">Instruments of work and of war — some carry a soft resonance with a centre above, most simply do what they were shaped to do.</p>
+    </div>
+    <div class="tikanga-grid" id="rakauGrid"></div>
+  </div>
+</section>
+
+<section id="kai">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <p class="eyebrow">Kai</p>
+      <h2 class="h">From gathering to cultivating.</h2>
+      <p class="lede">Five ways of feeding a people — the sea, the soil, the forest, and the fire that turns raw kai into a shared meal.</p>
+    </div>
+    <div class="matariki-grid" id="kaiGrid"></div>
+  </div>
+</section>
+
+<section id="waka">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <p class="eyebrow">Waka & Wayfinding</p>
+      <h2 class="h">Sailing the seas, reading the stars.</h2>
+      <p class="lede">The waka hourua — a double-hulled ocean-voyaging canoe — crossed the Pacific using no instruments at all: memorised stars, ocean swell, bird flight, and cloud read together as one continuous chart.</p>
+    </div>
+    <div class="matariki-grid" id="wakaGrid"></div>
+    <p class="cult-note" style="margin-top:22px;">A waka's parts are named in the same body-language as the wharenui above — prow, body, ribs — the same idea of a structure built as a body, just afloat instead of standing.</p>
+  </div>
+</section>
+
+<section id="whakatauki">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <p class="eyebrow">Ngā Whakataukī</p>
+      <h2 class="h">Words to walk with.</h2>
+      <p class="lede">A proverb carries generations of observation into a single line. Draw one at random, or keep drawing until one lands.</p>
+    </div>
+    <div class="whaka-card">
+      <div class="whaka-text" id="whakaText">—</div>
+      <div class="whaka-gloss" id="whakaGloss">—</div>
+      <button class="btn" id="whakaNewBtn">⟳ New Whakataukī</button>
+    </div>
   </div>
 </section>
 
@@ -651,9 +915,21 @@ footer{padding:80px 0 50px; border-top:1px solid var(--line);}
       <h2 class="h">The diagnostic matrix.</h2>
       <p class="lede">Every centre, cross-referenced — note and frequency, ruling body, Matariki star, number and geometry, mudra, and seed mantra.</p>
     </div>
+    <div class="spectrum-outer" id="spectrumOuter"></div>
     <div class="tablewrap">
       <table class="matrix" id="matrixTable"></table>
     </div>
+  </div>
+</section>
+
+<section id="pronunciation">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <p class="eyebrow">Before You Read On</p>
+      <h2 class="h">How to say it.</h2>
+      <p class="lede">This page is dense with Te Reo Māori. Five rules cover almost all of it.</p>
+    </div>
+    <div class="pron-grid" id="pronGrid"></div>
   </div>
 </section>
 
@@ -668,12 +944,34 @@ footer{padding:80px 0 50px; border-top:1px solid var(--line);}
   </div>
 </section>
 
+<section id="tikanga">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <p class="eyebrow">Tikanga Māori</p>
+      <h2 class="h">Protocols of practice.</h2>
+      <p class="lede">Core concepts that govern correct, respectful conduct in te ao Māori. Some carry a soft resonance with a centre above — noted only where it genuinely fits, not forced onto every term.</p>
+    </div>
+    <div class="tikanga-grid" id="tikangaGrid"></div>
+  </div>
+</section>
+
 <section id="oneness">
   <div class="wrap reveal" style="max-width:760px;">
     <p class="eyebrow">Closing</p>
     <h2 class="h">One continuous fractal.</h2>
     <p class="lede" style="margin-bottom:16px;">Quantum entanglement shows that particles which have interacted remain linked across space — a reminder that separation may be more a matter of scale than of substance. If matter is condensed energy, physical form and non-physical intention read as two expressions of the same continuous field.</p>
     <p class="lede">The macrocosm of stars and seasons, the numerical code of geometry and frequency, and the microcosm of cell voltage and bio-current are not three separate systems — they're one, observed at different scales. Separation is useful for living a localised life. It isn't, in the end, what's actually there.</p>
+  </div>
+</section>
+
+<section id="howto">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <p class="eyebrow">Putting It Together</p>
+      <h2 class="h">How to actually use this.</h2>
+      <p class="lede">The tone player, mudras, vowel toning, guided sessions, and the tracker below were all built at different points — here's how they fit as one practice.</p>
+    </div>
+    <div class="howto-list" id="howtoList"></div>
   </div>
 </section>
 
@@ -1063,6 +1361,300 @@ const KAITIAKI_ICONS = {
   </svg>`
 };
 
+const WHARENUI_PARTS = [
+  {key:'root', name:'Paepae', role:'Threshold / Doorstep', desc:'Where visitors pause before entering — the grounding point between outside and in.'},
+  {key:'sacral', name:'Mahau', role:'Porch / Veranda', desc:'The open, in-between space where welcome unfolds — fluid, transitional, social.'},
+  {key:'solar', name:'Poupou', role:'Carved Wall Posts', desc:'Ancestral figures holding up the walls — structural strength and will made visible.'},
+  {key:'heart', name:'Poutokomanawa', role:'Heart Post', desc:'The central interior post supporting the ridge — literally, the "heart-supporting post."'},
+  {key:'throat', name:'Maihi', role:'Bargeboards / Arms', desc:"The sloped boards reaching outward from the gable — the house's open arms and its voice of welcome."},
+  {key:'eye', name:'Koruru', role:'Carved Head', desc:'The carved face at the peak of the gable, watching over all who approach.'},
+  {key:'crown', name:'Tekoteko', role:'Guardian Figure', desc:'A carved figure at the very apex — the highest point, standing guard over the whole house.'}
+];
+
+function wharenuiSVG(){
+  const col = k => CHAKRAS.find(x=>x.key===k).colorHex;
+  return `<svg viewBox="0 0 300 220">
+    <line x1="30" y1="198" x2="270" y2="198" stroke="rgba(242,237,224,0.15)" stroke-width="1.5"/>
+    <path d="M150,42 L46,150" stroke="${col('throat')}" stroke-width="2.4" opacity="0.9" fill="none" stroke-linecap="round"/>
+    <path d="M150,42 L254,150" stroke="${col('throat')}" stroke-width="2.4" opacity="0.9" fill="none" stroke-linecap="round"/>
+    <line x1="46" y1="150" x2="46" y2="198" stroke="rgba(242,237,224,0.3)" stroke-width="2"/>
+    <line x1="254" y1="150" x2="254" y2="198" stroke="rgba(242,237,224,0.3)" stroke-width="2"/>
+    <rect x="70" y="150" width="160" height="48" stroke="rgba(242,237,224,0.2)" stroke-width="1.4" fill="none"/>
+    <line x1="85" y1="150" x2="85" y2="198" stroke="${col('solar')}" stroke-width="2" opacity="0.85"/>
+    <line x1="100" y1="150" x2="100" y2="198" stroke="${col('solar')}" stroke-width="2" opacity="0.85"/>
+    <line x1="200" y1="150" x2="200" y2="198" stroke="${col('solar')}" stroke-width="2" opacity="0.85"/>
+    <line x1="215" y1="150" x2="215" y2="198" stroke="${col('solar')}" stroke-width="2" opacity="0.85"/>
+    <line x1="150" y1="150" x2="150" y2="192" stroke="${col('heart')}" stroke-width="2.6" opacity="0.95"/>
+    <circle cx="150" cy="150" r="3" fill="${col('heart')}" stroke="none"/>
+    <rect x="134" y="192" width="32" height="6" rx="1" fill="${col('root')}" opacity="0.9" stroke="none"/>
+    <path d="M90,190 Q150,178 210,190" stroke="${col('sacral')}" stroke-width="1.8" opacity="0.6" fill="none" stroke-linecap="round"/>
+    <circle cx="150" cy="42" r="9" stroke="${col('eye')}" stroke-width="2.2" opacity="0.95" fill="none"/>
+    <line x1="150" y1="33" x2="150" y2="18" stroke="${col('crown')}" stroke-width="2.2" opacity="0.95" stroke-linecap="round"/>
+    <circle cx="150" cy="16" r="2.6" fill="${col('crown')}" stroke="none"/>
+  </svg>`;
+}
+
+const TIKANGA_TERMS = [
+  {term:'Tapu', def:'A state of sacredness or restriction placed on people, places, or things — requiring particular care and correct protocol.', resonance:null},
+  {term:'Noa', def:'The counterpart to tapu — a state of being unrestricted, ordinary, and safe to engage with freely.', resonance:null},
+  {term:'Mana', def:'Authority, prestige, and spiritual power or standing, carried by a person, group, or place.', resonance:'solar'},
+  {term:'Manaakitanga', def:'The practice of hospitality, care, and generosity — the obligation to look after and uplift others.', resonance:'heart'},
+  {term:'Whanaungatanga', def:'A sense of connection and relationship built through kinship and shared experience.', resonance:'sacral'},
+  {term:'Whakapapa', def:'Genealogy — the layered lineage connecting people, land, and ancestors across time.', resonance:'eye'},
+  {term:'Kaitiakitanga', def:'Guardianship and stewardship, particularly of the natural world — the duty to protect for those still to come.', resonance:'root'},
+  {term:'Karakia', def:'Ritual words or incantation, spoken before and after significant activities to bring focus, protection, and right intention.', resonance:'throat'},
+  {term:'Utu', def:'Reciprocity — the principle of maintaining balance by returning an action, whether an act of kindness or of harm.', resonance:null}
+];
+
+const NGA_TOI = {
+  root:   {name:'Whakairo', sub:'Wood Carving', desc:'Carving ancestral figures and stories into wood — a permanent, grounded record passed through generations.'},
+  sacral: {name:'Tā Moko', sub:'Traditional Tattoo', desc:'Marking the body with flowing, personal lines — identity, lineage, and life stage etched directly into skin.'},
+  solar:  {name:'Kapa Haka', sub:'Performance', desc:'Chant, dance, and haka performed with full physical commitment — assertive energy expressed through the body.'},
+  heart:  {name:'Raranga', sub:'Weaving', desc:'Weaving harakeke (flax) into kete and whāriki — a communal, nurturing craft that clothes and feeds a household.'},
+  throat: {name:'Kōwhaiwhai', sub:'Painted Patterns', desc:'Scroll patterns painted on rafters and panels — ancestral stories told visually, for all to "read."'},
+  eye:    {name:'Tukutuku', sub:'Lattice Panels', desc:'Geometric woven wall panels encoding symbolic patterns — meaning built from repetition and recognition.'},
+  crown:  {name:'Waiata', sub:'Song', desc:'Communal song carrying history, grief, and joy — voice lifted toward something larger than the singer.'}
+};
+
+const TOI_ICONS = {
+  root: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M35,70 L60,30" opacity="0.9"/><path d="M60,30 L68,22 L64,34 Z" opacity="0.8"/>
+    <path d="M25,75 Q50,68 75,75" opacity="0.4"/><path d="M28,82 Q50,76 72,82" opacity="0.3"/>
+  </svg>`,
+  sacral: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M25,55 Q50,35 75,55" opacity="0.85"/>
+    <path d="M40,50 C46,46 50,50 47,54 C45,57 41,55 42,52" opacity="0.9"/>
+    <path d="M60,50 C66,46 70,50 67,54 C65,57 61,55 62,52" opacity="0.9"/>
+  </svg>`,
+  solar: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="50" cy="30" r="7" opacity="0.9"/><line x1="50" y1="37" x2="50" y2="65" opacity="0.9"/>
+    <path d="M50,45 L30,25" opacity="0.85"/><path d="M50,45 L70,25" opacity="0.85"/>
+    <path d="M50,65 L35,85" opacity="0.85"/><path d="M50,65 L65,85" opacity="0.85"/>
+  </svg>`,
+  heart: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M25,35 L25,75 M40,30 L40,80 M55,30 L55,80 M70,35 L70,75" opacity="0.5"/>
+    <path d="M20,42 L75,42 M20,55 L75,55 M20,68 L75,68" opacity="0.5"/>
+  </svg>`,
+  throat: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30,50 C40,50 43,40 35,36 C29,33 23,38 25,45" opacity="0.9"/>
+    <path d="M70,50 C60,50 57,40 65,36 C71,33 77,38 75,45" opacity="0.9"/>
+    <path d="M35,58 Q50,50 65,58" opacity="0.5"/>
+  </svg>`,
+  eye: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50,25 L75,50 L50,75 L25,50 Z" opacity="0.8"/>
+    <path d="M50,35 L65,50 L50,65 L35,50 Z" opacity="0.6"/>
+  </svg>`,
+  crown: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M35,70 Q35,40 50,40 Q65,40 65,25" opacity="0.85"/>
+    <circle cx="35" cy="70" r="4" fill="currentColor" stroke="none" opacity="0.85"/>
+    <path d="M70,20 Q76,24 70,28" opacity="0.4"/><path d="M74,15 Q82,21 74,27" opacity="0.3"/>
+  </svg>`
+};
+
+const NGA_RAKAU = [
+  {term:'Toki', sub:'Adze', def:'A stone-bladed tool for felling trees and shaping wood — the foundational tool behind carving, building, and waka construction.', resonance:'root'},
+  {term:'Kō', sub:'Digging Stick', def:'A long wooden implement for turning soil and planting — the primary tool of the māra kai (cultivated garden).', resonance:'sacral'},
+  {term:'Matau', sub:'Fish Hook', def:'A carved hook, often bone or pounamu, shaped and sometimes lashed with patterns believed to attract particular fish.', resonance:'sacral'},
+  {term:'Hīnaki', sub:'Eel Trap', def:'A woven funnel trap set in rivers and streams to catch tuna (eel) — patience and precise placement over brute force.', resonance:null},
+  {term:'Taiaha', sub:'Long Fighting Staff', def:'A close-quarters weapon combining a bladed strike-end with a carved tongue-and-face end, used in the wero (challenge).', resonance:'solar'},
+  {term:'Mere', sub:'Short Pounamu Club', def:'A flat hand club of pounamu (greenstone), prized as a taonga passed between generations — a weapon and an heirloom at once.', resonance:'solar'},
+  {term:'Patu', sub:'Short Striking Club', def:'A close-range club of wood, bone, or stone, built for a swift, decisive strike rather than sustained combat.', resonance:null},
+  {term:'Hoe', sub:'Paddle', def:'A waka paddle — its rhythm set by a caller, timing an entire crew into one coordinated pull.', resonance:'heart'}
+];
+
+const KAI_WAYS = [
+  {name:'Hopu Manu', sub:'Hunting & Fowling', desc:'Catching birds such as kererū, historically including the moa, using snares, spears, and methods passed down within a whānau.', resonance:null},
+  {name:'Kaimoana', sub:'Gathering from the Sea', desc:'Shellfish, seaweed, and fish gathered from the shoreline and reef — timed around tides and the lunar phase.', resonance:'sacral'},
+  {name:'Māra Kai', sub:'Cultivating', desc:'Gardens of kūmara, taro, and hue — soil built and tended across generations, planted and harvested by seasonal signs.', resonance:'root'},
+  {name:'Rongoā', sub:'Foraging for Medicine', desc:'Gathering plants such as kawakawa and harakeke for medicinal use — knowledge of what grows where, and when.', resonance:'eye'},
+  {name:'Hāngī', sub:'Earth-Oven Cooking', desc:'Food cooked slowly over heated stones buried in the earth — a communal method that feeds many from one fire.', resonance:'heart'}
+];
+
+const WAYFINDING = [
+  {name:'Kāpehu Whetū', sub:'Star Compass', desc:'A mental compass built from the memorised rising and setting points of key stars around the horizon, used to hold a course through the night.'},
+  {name:'Ngā Ngaru', sub:'Reading the Swell', desc:'Distinct ocean swell patterns bend around islands — a trained navigator can feel land beyond the horizon through how the waka moves.'},
+  {name:'Ngā Manu', sub:'Bird Flight', desc:'Land-based birds flying out at dawn and returning at dusk mark the direction and rough distance to the nearest shore.'},
+  {name:'Ngā Kapua', sub:'Cloud Formations', desc:'A stationary cloud, or one with a greenish underside, can signal an island or lagoon reflecting light back up into the sky.'},
+  {name:'Whetū Tiaho', sub:'Zenith Stars', desc:'A star that passes directly overhead at a specific latitude acts as a marker — sail until that star sits at zenith, and you are on that latitude.'}
+];
+
+/* Deduplicated from the source list — proverbs only; two lines that
+   were actually song lyrics rather than whakataukī were left out. */
+const WHAKATAUKI = [
+  {mi:'He kura tangata e kore e hokia.', en:'A treasured person cannot be returned to — cherish relationships.'},
+  {mi:'Whaowhia te kete mātauranga.', en:'Fill the basket of knowledge.'},
+  {mi:'Manaaki whenua, manaaki tangata, haere whakamua.', en:'Care for the land, care for people, go forward.'},
+  {mi:'Mā te ngākau aroha e ārahi.', en:'Let a loving heart lead you.'},
+  {mi:'Mā te mahi tahi, ka ora ai te tangata.', en:'Through working together, people prosper.'},
+  {mi:'Kia hora te marino.', en:'May peace be widespread.'},
+  {mi:'Mā te wā.', en:'In time, all will come right.'},
+  {mi:'Mā te rongo, ka mōhio.', en:'Through listening, comes understanding.'},
+  {mi:'Kia ora te wairua.', en:'Let the spirit be well.'},
+  {mi:'He tangata! He tangata! He tangata!', en:'It is people! People! People!'},
+  {mi:'Kia mau ki te kupu.', en:'Hold fast to your word.'},
+  {mi:'Mā te wairua e whakakaha te tinana.', en:'Let the spirit strengthen the body.'},
+  {mi:'Mā te ngākau māhaki.', en:'With a humble heart.'},
+  {mi:'Aroha mai, aroha atu.', en:'Love received, love returned.'},
+  {mi:'Mā te pūtaiao, mā te mātauranga.', en:'Through science, through knowledge.'},
+  {mi:'Ko te pae tawhiti, whāia kia tata. Ko te pae tata, whakamaua kia tina.', en:'The distant horizon must be pursued so it may be brought near. The near horizon must be secured so it may be treasured.'},
+  {mi:'Toitū te whenua, whatu ngarongaro te tangata.', en:'The land remains, while people disappear.'},
+  {mi:'He kōtuku rerenga tahi.', en:'The white heron flies once — a rare event.'},
+  {mi:'Kia whakatōmuri te haere whakamua.', en:'I walk backward into the future with my eyes fixed on my past.'},
+  {mi:'Ehara taku toa i te toa takitahi, engari he toa takitini.', en:'My strength is not mine alone, but comes from many.'},
+  {mi:'Kāore te kūmara e kōrero mō tōna ake reka.', en:"The kūmara does not speak of its own sweetness — be humble."},
+  {mi:'He kura kāinga e hokia, he kura tangata e kore e hokia.', en:'A treasured home can be returned to, but a treasured person cannot.'},
+  {mi:'He tao huata e taea te karo, he tao kī e kore e taea.', en:'A physical spear can be parried, but a verbal spear cannot.'},
+  {mi:'He iti hoki te mokoroa, nāna i kakati te kahikatea.', en:'Though the grub is small, it cuts through the kahikatea tree — small things can have great impact.'},
+  {mi:'Tungia te ururoa kia tupu whakaritorito te tupu o te harakeke.', en:'Burn the old growth so new flax shoots may sprout.'},
+  {mi:'He kōpara e kō nei i te ata, he kai mā te iwi.', en:'The bellbird that sings in the morning provides food for the people — early risers prosper.'},
+  {mi:'Whāia te iti kahurangi, ki te tūohu koe, me he maunga teitei.', en:'Seek the treasure you value most dearly; if you bow your head, let it be to a lofty mountain.'},
+  {mi:'He kai tahu ki, he kai tahu kōrero.', en:'Food cooks while stories are told — good things take time.'},
+  {mi:'Kua rongo koe i te marangai, ka taea e koe te hāpai te rā.', en:'If you have felt the storm, you can embrace the sun.'},
+  {mi:'Whāia te māramatanga.', en:'Seek enlightenment.'},
+  {mi:'He mihi kau te aroha.', en:'Love is freely given.'},
+  {mi:'Ko te amorangi ki mua, ko te hāpai ō ki muri.', en:'The leader at the front, the supporters behind — success requires teamwork.'},
+  {mi:'Kia ora rā te ngahere, ka ora hoki te tangata.', en:'When the forest thrives, so too does humanity.'},
+  {mi:'He kōtuku kai-whakaata.', en:'A white heron feeding while reflected — beauty in stillness.'},
+  {mi:'He piko, he taniwha; he piko, he taniwha.', en:"At every bend in the river, a new challenge — life's journey has many turns."},
+  {mi:'Kia tūpato — mā te tuatahi ka kitea te māramatanga.', en:'Be cautious — through awareness, understanding will come.'},
+  {mi:'He kākano ahau i ruia mai i Rangiātea.', en:'I am a seed sown from Rangiātea — we all have divine origins.'},
+  {mi:'Ko te manu e kai ana i te miro, nōna te ngahere.', en:'The bird that eats the miro berry owns the forest — we reap what we sow.'},
+  {mi:'Mauri tū, mauri ora.', en:'An active soul is a healthy soul.'},
+  {mi:'Kia kaha, kia maia, kia manawanui.', en:'Be strong, be courageous, be steadfast.'},
+  {mi:'Kaua e mate wheke, mate ururoa.', en:'Do not die like an octopus, die like a hammerhead shark — persevere and fight on.'},
+  {mi:'Tūwhitia te hopo, mairangatia te angitū.', en:'Eliminate fear, elevate success.'},
+  {mi:'Ko te rā o te ora, kaua e moumou.', en:'The light of life should never be wasted.'},
+  {mi:'Te anga whakamua, ko te ara tika.', en:'Progress forward, walk the right path.'},
+  {mi:'He rangi tā matawhāiti, he rangi tā matawhānui.', en:'A person with a narrow vision sees a narrow horizon; a person with a wide vision sees a broad horizon.'},
+  {mi:'Mā te huruhuru ka rere te manu.', en:'Adorn the bird with feathers, and it will fly.'}
+];
+
+/* Te Maramataka — the 30-night lunar calendar. Names and emphasis vary
+   between iwi; this follows a commonly taught general version and is
+   presented as such, not as a single authoritative source. */
+const ENERGY_META = {
+  rest:   {label:'Rest',   color:'#6b6f7d'},
+  low:    {label:'Low',    color:'#5f7fa0'},
+  medium: {label:'Medium', color:'#cf9d4e'},
+  high:   {label:'High',   color:'#5fae7a'},
+  peak:   {label:'Peak — Full Moon', color:'#e8c766'}
+};
+
+const MARAMATAKA = [
+  {name:'Whiro', energy:'rest', guidance:'New moon, no moon visible. Lowest energy of the cycle — rest, reflect, avoid major new ventures.'},
+  {name:'Tirea', energy:'low', guidance:'Energy just beginning to stir. A quiet night for preparation rather than action.'},
+  {name:'Hoata', energy:'medium', guidance:'A fair night with rising energy, suited to lighter tasks and routine work.'},
+  {name:'Ouenuku', energy:'medium', guidance:'Weather and mood can shift quickly — proceed with some caution.'},
+  {name:'Okoro', energy:'medium', guidance:'Steady, moderate energy. A reasonable day for ordinary work.'},
+  {name:'Tamatea-kai-ariki', energy:'low', guidance:'The first of the unsettled Tamatea nights — changeable, not ideal for planting or fishing.'},
+  {name:'Tamatea-a-ngana', energy:'low', guidance:'Still unpredictable. A night for patience rather than new starts.'},
+  {name:'Tamatea-whakapau', energy:'medium', guidance:'The last of the Tamatea nights — energy beginning to settle.'},
+  {name:'Huna', energy:'low', guidance:"A 'hidden' night, traditionally quiet and introspective."},
+  {name:'Ari', energy:'medium', guidance:'A clear, favourable day for general activity.'},
+  {name:'Hotu', energy:'medium', guidance:'Steady energy — a reasonable day for routine tasks.'},
+  {name:'Māwharu', energy:'high', guidance:'Highly productive — considered one of the best nights, especially for planting.'},
+  {name:'Ohua', energy:'high', guidance:'A fertile, favourable night — good for gathering and careful, precise work.'},
+  {name:'Atua-whakahaehae', energy:'medium', guidance:'Active but restless energy. Plans may not run entirely smoothly.'},
+  {name:'Turu', energy:'medium', guidance:'Dependable, steady energy.'},
+  {name:'Rākaunui', energy:'peak', guidance:'The full moon — peak energy of the cycle. Historically the most productive night for fishing and planting.'},
+  {name:'Rākaumatohi', energy:'high', guidance:'Energy remains strong just past the peak — still favourable for activity.'},
+  {name:'Takirau', energy:'medium', guidance:'Energy softening after the full moon.'},
+  {name:'Oike', energy:'medium', guidance:'A quieter night — better suited to lighter or contemplative work.'},
+  {name:'Korekore-te-whiwhia', energy:'low', guidance:"The first of the 'nothing' nights. A lean period — avoid major new ventures."},
+  {name:'Korekore-te-rawea', energy:'low', guidance:'Low energy continues — a time for rest and preparation.'},
+  {name:'Korekore-piri-ki-Tangaroa', energy:'low', guidance:'Energy beginning to turn, drawing close to the productive Tangaroa nights ahead.'},
+  {name:'Tangaroa-a-mua', energy:'high', guidance:"The first Tangaroa night — excellent for fishing, the sea's influence is strong."},
+  {name:'Tangaroa-a-roto', energy:'high', guidance:'Continued strong energy for fishing and gathering from the sea.'},
+  {name:'Tangaroa-kiokio', energy:'high', guidance:'Still a highly favourable night for fishing.'},
+  {name:'Tangaroa-whakapau', energy:'medium', guidance:'The last Tangaroa night — energy favourable but beginning to taper.'},
+  {name:'Otāne', energy:'medium', guidance:'A balanced, good day for general activity.'},
+  {name:'Orongonui', energy:'high', guidance:'An abundant, favourable night — a good time to gather and give thanks.'},
+  {name:'Mauri', energy:'low', guidance:'Transitional energy, the cycle preparing to turn over.'},
+  {name:'Mutuwhenua', energy:'rest', guidance:"The moon's dark night, end of the cycle. Rest and reflect before Whiro begins again."}
+];
+
+function getMoonPhaseIndex(date){
+  const synodic = 29.530588853;
+  const knownNewMoon = Date.UTC(2000,0,6,18,14,0);
+  const diffDays = (date.getTime() - knownNewMoon) / 86400000;
+  let age = diffDays % synodic;
+  if(age < 0) age += synodic;
+  let idx = Math.floor((age/synodic)*30);
+  if(idx > 29) idx = 29;
+  return idx;
+}
+
+function maramatakaWheelSVG(currentIdx){
+  const cx=100, cy=100, r=82;
+  let dots = '';
+  MARAMATAKA.forEach((p,i)=>{
+    const angle = (i/30)*2*Math.PI - Math.PI/2;
+    const x = (cx + r*Math.cos(angle)).toFixed(2);
+    const y = (cy + r*Math.sin(angle)).toFixed(2);
+    const meta = ENERGY_META[p.energy];
+    const isCur = i===currentIdx;
+    const radius = isCur ? 7.5 : 4;
+    const glow = isCur ? ` style="filter:drop-shadow(0 0 6px ${meta.color})"` : '';
+    dots += `<circle cx="${x}" cy="${y}" r="${radius}" fill="${meta.color}" opacity="${isCur?1:0.55}"${glow}/>`;
+  });
+  return `<svg viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="82" fill="none" stroke="rgba(242,237,224,0.12)" stroke-width="1"/>
+    ${dots}
+  </svg>`;
+}
+
+const COSMO_STAGES = [
+  {name:'Te Kore', gloss:'The void. Pure potential — form not yet decided.',
+   icon:`<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="50" cy="50" r="30" opacity="0.7" stroke-dasharray="4 6"/></svg>`},
+  {name:'Te Pō', gloss:'The long night. Darkness where the atua gestated, unborn.',
+   icon:`<svg viewBox="0 0 100 100" fill="none"><path d="M62,26 A25,25 0 1 0 62,74 A19,19 0 1 1 62,26 Z" opacity="0.85" fill="currentColor"/></svg>`},
+  {name:'Te Ao Mārama', gloss:'The world of light — where every centre on this page lives.',
+   icon:`<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="50" cy="50" r="16" opacity="0.9"/><line x1="50" y1="14" x2="50" y2="24"/><line x1="50" y1="76" x2="50" y2="86"/><line x1="14" y1="50" x2="24" y2="50"/><line x1="76" y1="50" x2="86" y2="50"/><line x1="24" y1="24" x2="31" y2="31"/><line x1="69" y1="69" x2="76" y2="76"/><line x1="76" y1="24" x2="69" y2="31"/><line x1="31" y1="69" x2="24" y2="76"/></svg>`}
+];
+
+const NEWYEAR_STAGES = [
+  {name:'Remember', gloss:'Names of those who died in the past year are spoken aloud, their spirits said to rise and become stars.',
+   icon:`<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M50,78 Q50,48 50,26" stroke-dasharray="3 6" opacity="0.75"/><circle cx="50" cy="20" r="4" fill="currentColor" stroke="none"/></svg>`},
+  {name:'Celebrate', gloss:'Whānau gather, kai is shared, and the simple fact of being alive together is what the year turns on.',
+   icon:`<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="50" cy="50" r="14" opacity="0.85"/><line x1="50" y1="20" x2="50" y2="28"/><line x1="50" y1="72" x2="50" y2="80"/><line x1="20" y1="50" x2="28" y2="50"/><line x1="72" y1="50" x2="80" y2="50"/><line x1="29" y1="29" x2="35" y2="35"/><line x1="71" y1="71" x2="65" y2="65"/><line x1="71" y1="29" x2="65" y2="35"/><line x1="29" y1="71" x2="35" y2="65"/></svg>`},
+  {name:'Plan', gloss:"The brightness and clarity of the stars is read as a forecast, and intentions are set for the season ahead.",
+   icon:`<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="50" y1="78" x2="50" y2="46" opacity="0.85"/><path d="M50,56 C40,50 35,40 42,32" opacity="0.8"/><path d="M50,56 C60,50 65,40 58,32" opacity="0.8"/></svg>`}
+];
+
+const IKAROA_STARS = [
+  {name:'Takurua', western:'Sirius', desc:'The brightest star in the night sky — its appearance historically marked the coldest depth of winter.'},
+  {name:'Autahi', western:'Canopus', desc:"Takurua's companion, rising alongside it — the two read together as a single seasonal marker."},
+  {name:'Rehua', western:'Antares', desc:'A red giant associated with high chieftainship and the peak of summer, when Rehua is said to bring warmth and abundance.'},
+  {name:'Puanga', western:'Rigel', desc:'Used in place of Matariki as the New Year marker by several iwi, particularly in the west and south, where Matariki sits low or unseen on the horizon.'}
+];
+
+const PRONUNCIATION_RULES = [
+  {sound:'ā ē ī ō ū', name:'Macrons', desc:'A macron doubles the vowel length — hold it. "Mātauranga" (knowledge) is "maa-tau-rung-a", not a short "a".'},
+  {sound:'Wh', name:'The WH Sound', desc:'Usually pronounced like an English "f" in most dialects. "Whakairo" (carving) sounds close to "fah-kai-roh".'},
+  {sound:'Ng', name:'The NG Sound', desc:'One soft, single sound, like the "ng" in "sing" — never split into a hard "n" plus "g". It opens words like "ngākau" (heart).'},
+  {sound:'R', name:'A Light R', desc:'A quick, light tap of the tongue — closer to a rolled Spanish r than an English one. It softens the middle of "aroha".'},
+  {sound:'a e i o u', name:'Every Vowel Counted', desc:'Each vowel is pronounced on its own, never blurred into an English-style glide. "Kaitiaki" is ka-i-ti-a-ki, five distinct beats.'}
+];
+
+const WHAKAPAPA_CHILDREN = [
+  {name:'Tāne', role:'Forests & Light', key:'eye'},
+  {name:'Tangaroa', role:'The Sea', key:'sacral'},
+  {name:'Tūmatauenga', role:'War & Strategy', key:'solar'},
+  {name:'Rongomātāne', role:'Peace & Cultivation', key:'heart'},
+  {name:'Haumia-tiketike', role:'Wild Food', key:'heart'},
+  {name:'Tāwhirimātea', role:'Wind & Weather', key:'throat'},
+  {name:'Rūaumoko', role:'Earthquakes — stayed in the womb', key:'root'}
+];
+
+const HOWTO_STEPS = [
+  {title:'Pick a centre', desc:"Use the Today's Centre banner up top, or just pick whichever chakra matches how you feel right now."},
+  {title:'Play the tone', desc:"Hit play on that centre's frequency — Root Octave for something grounded, Concert Pitch for something brighter."},
+  {title:'Form the mudra, sound the vowel', desc:'Hold the hand shape shown in that panel, and breathe the listed vowel out on each exhale.'},
+  {title:'Or let the Guided Session run it', desc:'One button runs the whole sequence for you — tone, mudra hold, vowel toning, then silence — with a timer.'},
+  {title:'Log it in the Practice Tracker', desc:'Mark the centre you worked with today, down at the bottom of the page, and build a streak over time.'},
+  {title:'Zoom out with the wider cycles', desc:'Use the Ascending / Descending Path to see where today fits in a longer arc, and the Maramataka to see whether tonight favours starting something new or resting.'}
+];
+
 const CHAKRAS = [
   {
     key:'root', day:'Saturday', planet:'Saturn', note:'C₃', color:'var(--c-root)', colorHex:'#b8443a',
@@ -1082,7 +1674,24 @@ const CHAKRAS = [
     vowelMaori:{sound:'"UH" / "U"', example:'as in Uru', term:'Pūtake'},
     formant:{f1:520, f2:1190},
     targetCells:'Osteocytes & Marrow Stem Cells', hormones:'Cortisol, Adrenaline',
-    bioImpact:'Piezoelectric bone density & mineral regulation.'
+    bioImpact:'Piezoelectric bone density & mineral regulation.',
+    dimension:'1D · Spatial Coordinate (x₁) — the singular linear direction, the geometric point.',
+    timeRange:'Midnight · 00:00–03:00',
+    angelNumber:'111', luckyCombo:'6+1', alchemicalMetal:'Lead (Plumbum)',
+    hermeticPrinciple:'Mentalism', discipline:'Grammar — foundational mechanics', gurdjieffGap:'The Launchpad Base',
+    genesisOrigin:'Papatūānuku (The Earth Mother) — the feminine anchor holding dense matter.',
+    pantheon:{
+      samoan:'Papatū (Foundational Bedrock) / Mafuiʻe (Underworld Seismic Fire Guardian)',
+      pacific:'Hikuleʻo (Tongan Underworld Guardian) / Kamohoaliʻi (Hawaiian Basalt Base Akua)',
+      abrahamic:"Nafs al-Ammara (Sufi Primal Animal Self) / Malkuth (Kabbalah Physical Kingdom)",
+      nordic:'Uruz Rune (Bedrock Power) / Veles (Slavic Underworld) / Cernunnos (Celtic Lord of Wilds)',
+      eastern:'Ganesha (Obstacle Remover) / Yama (Vedic Underworld) / Tu Di Gong / Ōyamatsumi (Mountain King)',
+      americas:'Coatlicue & Tlaltecuhtli (Aztec Volcanoes) / Cabrakán (Mayan) / Turtle Island Earth Mother',
+      antiquity:'Saturn / Pluto / Asase Yaa (West African) / Geb (Egyptian) / Hades (Greek) / Nergal'
+    },
+    continent:'Antarctica', ocean:'The Southern Ocean', wonder:'The Great Pyramid of Giza',
+    avatarChristian:'The Nativity & Flesh — physical incarnation.',
+    avatarBuddhist:"Prince Siddhartha's Birth — the palace luxury bond."
   },
   {
     key:'sacral', day:'Monday', planet:'Moon', note:'D₃', color:'var(--c-sacral)', colorHex:'#c9803d',
@@ -1102,7 +1711,24 @@ const CHAKRAS = [
     vowelMaori:{sound:'"OO" / "O"', example:'as in Roa', term:'Pito'},
     formant:{f1:325, f2:700},
     targetCells:'Leydig/Granulosa & Endothelial Cells', hormones:'Estrogen, Testosterone',
-    bioImpact:'Osmotic pressure dynamics & fluid renewal.'
+    bioImpact:'Osmotic pressure dynamics & fluid renewal.',
+    dimension:'2D · Spatial Coordinates (x₁, x₂) — the flat plane, surface area mapping.',
+    timeRange:'Dawn / Sunrise · 03:00–06:00',
+    angelNumber:'222', luckyCombo:'5+2', alchemicalMetal:'Silver (Argentum)',
+    hermeticPrinciple:'Correspondence', discipline:'Logic & Dialectic — polar mapping', gurdjieffGap:null,
+    genesisOrigin:'Neutral Mid-Space — the primal cosmic separation gap.',
+    pantheon:{
+      samoan:'Tagaloa a Tamana — ruling open sea paths and pelagic deeps',
+      pacific:'Tangaloa ʻAtulongolongo (Tongan Water Spirit) / Kanaloa (Hawaiian Ocean Ruler)',
+      abrahamic:"Al-Ma' (Sufi Primordial Water) / Yesod (Kabbalah Generative Fluid Force)",
+      nordic:'Laguz Rune (Water Flow) / Mokosh & Kostroma (Slavic) / Manannán mac Lir (Irish Ocean Master)',
+      eastern:'Varuna (Vedic Ocean) / Saraswati (Flowing Arts) / Mazu & Longwang / Watatsumi & Mizu Kami',
+      americas:'Chalchiuhtlicue (Aztec Jade Skirt Water) / Ixchel (Mayan Moon & Womb) / Water Spirit Tides',
+      antiquity:'Neptune / Diana / Yemoja (Yoruba) / Sobek (Egyptian) / Poseidon / Enki'
+    },
+    continent:'Australia & Oceania', ocean:'The South Pacific Ocean', wonder:'The Lighthouse of Alexandria',
+    avatarChristian:'The Baptism in the Jordan — water spirit.',
+    avatarBuddhist:'The Four Sights & Renunciation — the suffering matrix.'
   },
   {
     key:'solar', day:'Tuesday', planet:'Mars', note:'E₃', color:'var(--c-solar)', colorHex:'#d3ab3f',
@@ -1122,7 +1748,24 @@ const CHAKRAS = [
     vowelMaori:{sound:'"OH"', example:'as in Oho', term:'Puku'},
     formant:{f1:500, f2:900},
     targetCells:'Islets of Langerhans & Enterocytes', hormones:'Insulin, Gut Serotonin',
-    bioImpact:'Glucose oxidation & metabolic heat.'
+    bioImpact:'Glucose oxidation & metabolic heat.',
+    dimension:'3D · Spatial Coordinates (x₁, x₂, x₃) — volume, boundary intersection limits.',
+    timeRange:'Mid-Morning · 06:00–09:00',
+    angelNumber:'333', luckyCombo:'4+3', alchemicalMetal:'Iron (Ferrum)',
+    hermeticPrinciple:'Vibration', discipline:'Rhetoric — verbal persuasion & combat', gurdjieffGap:'The Mi-Fa Gap — the ego block',
+    genesisOrigin:'Neutral Mid-Space — the primal cosmic separation gap.',
+    pantheon:{
+      samoan:'Nafanua — the supreme, underworld-born war goddess, ruler of tactical martial will',
+      pacific:'Laufakanaʻa (Tongan Guard) / Kū (Hawaiian War King & Power Source)',
+      abrahamic:'Himma (Sufi Resolution Will) / Al-Nar (Fire) / Hod & Netzach (Kabbalah Endurance Drive)',
+      nordic:'Thurisaz Rune (The Thorn/Defense) / Perun (Slavic Thunder) / The Morrigan & Toutatis (Celtic)',
+      eastern:'Kartikeya (Vedic War General) / Agni (Sacred Fire) / Guan Yu & Nezha / Hachiman (Samurai Guardian)',
+      americas:'Huitzilopochtli (Aztec War/Fire) / Tohil (Mayan Fire Sacrifice) / Thunderbird Fire Spirit',
+      antiquity:'Mars / Marte / Shango (Yoruba Lightning) / Sekhmet (Egyptian) / Inanna-Ishtar / Ares'
+    },
+    continent:'Africa', ocean:'The Indian Ocean', wonder:'The Colossus of Rhodes',
+    avatarChristian:'Wilderness Temptation — the ego battle.',
+    avatarBuddhist:"Confronting Mara's Army — willpower control."
   },
   {
     key:'heart', day:'Friday', planet:'Venus', note:'F₃', color:'var(--c-heart)', colorHex:'#4f8f6b',
@@ -1142,7 +1785,24 @@ const CHAKRAS = [
     vowelMaori:{sound:'"AH" / "A"', example:'as in Aroha', term:'Manawa'},
     formant:{f1:700, f2:1220},
     targetCells:'Cardiomyocytes & T-Cells', hormones:'ANP, Thymosin',
-    bioImpact:"HRV coherence; a magnetic field roughly 5,000x stronger than the brain's."
+    bioImpact:"HRV coherence; a magnetic field roughly 5,000x stronger than the brain's.",
+    dimension:'4D · Coordinate System (x₁, x₂, x₃, t) — time line, duration, causality sequences.',
+    timeRange:'Midday / Noon · 09:00–15:00',
+    angelNumber:'444', luckyCombo:'7-7-7', alchemicalMetal:'Copper (Cuprum)',
+    hermeticPrinciple:'Polarity', discipline:'Arithmetic — abstract symmetry', gurdjieffGap:null,
+    genesisOrigin:'Neutral Mid-Space — the primal cosmic separation gap.',
+    pantheon:{
+      samoan:'Losa (Goddess of Agricultural Harvest) / Sina (Nurture, Beauty & Love)',
+      pacific:'Mafuike (Tongan Vitality Core) / Lono (Hawaiian God of Peace, Rains & Abundance)',
+      abrahamic:'Qalb (Sufi Spiritual Heart) / Ishq (Divine Love) / Tiphereth (Kabbalah Central Beauty)',
+      nordic:'Jera Rune (The Cyclic Harvest) / Lada (Slavic Spring) / Brigid & Aengus (Celtic Balance)',
+      eastern:"Lakshmi / Kama / Shennong & Chang'e / Inari Ōkami (Shinto Rice/Prosperity Kami)",
+      americas:'Xochipilli & Centeotl (Aztec Flower/Maize) / Yum Kaax (Mayan) / Corn Mother & Buffalo Calf Woman',
+      antiquity:'Venus / Ceres / Nomkhubulwane (Zulu) / Osiris & Isis (Egyptian) / Demeter / Tammuz'
+    },
+    continent:'South America', ocean:'The South Atlantic Ocean', wonder:'The Hanging Gardens of Babylon',
+    avatarChristian:'The Ministry of Outcast Service.',
+    avatarBuddhist:'Discovery of the Middle Way — metta, heart tuning.'
   },
   {
     key:'throat', day:'Wednesday', planet:'Mercury', note:'G₃', color:'var(--c-throat)', colorHex:'#3f7ea8',
@@ -1162,7 +1822,24 @@ const CHAKRAS = [
     vowelMaori:{sound:'"EY" / "E"', example:'as in Reo', term:'Kōrero'},
     formant:{f1:400, f2:2200},
     targetCells:'Thyroid Follicular Cells', hormones:'Thyroxine (T4), Triiodothyronine (T3)',
-    bioImpact:'Basal metabolic rate & vagal acoustic tuning.'
+    bioImpact:'Basal metabolic rate & vagal acoustic tuning.',
+    dimension:'5D · Space Fabric (x₁...x₄, P) — probability coordinates, branching timelines.',
+    timeRange:'Late Afternoon / Dusk · 15:00–18:00',
+    angelNumber:'555', luckyCombo:'3+4', alchemicalMetal:'Quicksilver (Mercury)',
+    hermeticPrinciple:'Rhythm', discipline:'Geometry — spatial ratios', gurdjieffGap:null,
+    genesisOrigin:'Neutral Mid-Space — the primal cosmic separation gap.',
+    pantheon:{
+      samoan:'Mataupolu — personification of heavy tropical wind currents and storm pathways',
+      pacific:'Havea Hikuleʻo (Tongan Voice of Mandate) / Laʻamaomao (Hawaiian Wind God)',
+      abrahamic:"Dhikr (Sufi Chanting) / Kun (Divine Word Command) / Da'at (Kabbalah Vocalization of Knowledge)",
+      nordic:'Ansuz Rune (The Spoken Breath) / Stribog (Slavic Winds) / Ogma (Irish Celtic God of Eloquence)',
+      eastern:'Hanuman / Vayu (Cosmic Wind) / Leigong & Fei Lian / Fujin (Wind Bag) & Raijin (Thunder)',
+      americas:'Ehecatl (Aztec Wind Messenger) / Huracán (Mayan Hurricane) / Sacred Breath Spirits',
+      antiquity:'Mercury / Jupiter / Oya (Yoruba Storms) / Shu (Egyptian Air) / Enlil / Zeus'
+    },
+    continent:'Europe', ocean:'The Mediterranean Sea', wonder:'The Statue of Zeus at Olympia',
+    avatarChristian:'The Living Word / Logos — parables.',
+    avatarBuddhist:'Turning the Wheel of Dharma — verbal truth clarity.'
   },
   {
     key:'eye', day:'Thursday', planet:'Jupiter', note:'A₃', color:'var(--c-eye)', colorHex:'#5a5aa0',
@@ -1182,7 +1859,24 @@ const CHAKRAS = [
     vowelMaori:{sound:'"I" / "EE"', example:'as in Huna', term:'Kanohi Huna'},
     formant:{f1:270, f2:2290},
     targetCells:'Pituicytes & Glial Cells', hormones:'Vasopressin, Tropins',
-    bioImpact:'Circadian control & synaptic plasticity.'
+    bioImpact:'Circadian control & synaptic plasticity.',
+    dimension:'6D · Phase Coordinates (x₁...x₄, P, Φ) — multiversal vector space, intent matrices.',
+    timeRange:'Twilight / Nightfall · 18:00–21:00',
+    angelNumber:'666', luckyCombo:'2+5', alchemicalMetal:'Tin (Stannum)',
+    hermeticPrinciple:'Cause and Effect', discipline:'Music Harmonics', gurdjieffGap:null,
+    genesisOrigin:'Neutral Mid-Space — the primal cosmic separation gap.',
+    pantheon:{
+      samoan:'Tagaloa-algi — the high ancestral counsel of supreme intellect and heavenly insight',
+      pacific:'Tangaloa ʻEiki (Tongan Master of Wisdom) / Kāne (Hawaiian Light & Creation Source)',
+      abrahamic:'Basirah (Sufi Vision Perception) / Chochmah & Binah (Kabbalah Transcendent Wisdom)',
+      nordic:'Mannaz Rune (Conscious Mind) / Svarog (Slavic Mind) / Lugh & The Druids (Celtic Sages)',
+      eastern:'Shiva (Third Eye Transmuter) / Brihaspati / Wenchang Wang / Omoikane (Shinto Sage Council)',
+      americas:'Quetzalcoatl (Aztec Serpent Wisdom) / Itzamná (Mayan Glyphic Logic) / All-Seeing Vision Spirit',
+      antiquity:'Minerva / Orunmila (Yoruba Diviner) / Thoth (Egyptian Scribe) / Nabu / Athena'
+    },
+    continent:'Asia', ocean:'The North Atlantic Ocean', wonder:'The Mausoleum at Halicarnassus',
+    avatarChristian:'The Transfiguration on the Mountain.',
+    avatarBuddhist:'Supreme Enlightenment Nirvana Under the Bodhi Tree.'
   },
   {
     key:'crown', day:'Sunday', planet:'Sun', note:'B₃', color:'var(--c-crown)', colorHex:'#8a5aa8',
@@ -1202,7 +1896,24 @@ const CHAKRAS = [
     vowelMaori:{sound:'"MM" / Silence', example:'as in Aio', term:'Mahunga'},
     formant:{f1:250, f2:1200},
     targetCells:'Pinealocytes & Brain Sand', hormones:'Melatonin, Pinoline',
-    bioImpact:'Light transduction & cellular autophagy.'
+    bioImpact:'Light transduction & cellular autophagy.',
+    dimension:'7D · Singularity Network — the omniverse core, unified boundary horizon field.',
+    timeRange:'Deep Night Sleep · 21:00–00:00',
+    angelNumber:'777', luckyCombo:'1+6', alchemicalMetal:'Gold (Aurum)',
+    hermeticPrinciple:'Gender', discipline:'Astronomy', gurdjieffGap:'The Si-Do Void Shock Gap',
+    genesisOrigin:'Ranginui (The Sky Father) — the cosmic masculine vault ruling the space matrix.',
+    pantheon:{
+      samoan:'Tagaloa-lagi — the supreme primordial progenitor, dwelling in the absolute upper sky',
+      pacific:'Tangaloa (Tongan Primal Sky Vault) / Ao (Hawaiian Primordial Light Source)',
+      abrahamic:'Fana (Sufi Ego Annihilation) / Al-Nūr (Pure Light) / Kether (Kabbalah Divine Source Crown)',
+      nordic:'Othala Rune (Ancestral Heritage) / Rod / Belenus & Dagda Mór (Irish Celtic Solar Kings)',
+      eastern:'Brahma (Architect) / Surya (Sun) / Jade Emperor / Amaterasu Ōmikami (Shinto Sun Goddess)',
+      americas:'Ometeotl (Aztec Dual Source) / Hunab Ku (Mayan Core Axis) / Wakan Tanka (Great Spirit)',
+      antiquity:'Sol Invictus / Unkulunkulu (Zulu Sky Father) / Ra & Aten / Anu (Mesopotamian) / Apollo'
+    },
+    continent:'North America', ocean:'The Arctic Ocean', wonder:'The Temple of Artemis at Ephesus',
+    avatarChristian:'Resurrection & Ascension — return to the Father.',
+    avatarBuddhist:'Parinirvana — the absolute formless cosmic exit.'
   }
 ];
 
@@ -1268,6 +1979,8 @@ CHAKRAS.forEach((c,i)=>{
         <div class="freq-box">
           <div class="freq-num" id="fnum-${c.key}">${c.freqRoot.toFixed(2)}<span>Hz</span></div>
           <div class="freq-note">${c.note} · ${c.light}</div>
+          <div class="freq-note" style="color:var(--star-dim); margin-top:2px;">${c.dimension}</div>
+          <div class="freq-note" style="color:var(--star-dim);">${c.timeRange}</div>
           <div class="freq-controls">
             <button class="play-btn" data-key="${c.key}" title="Play tone">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -1317,8 +2030,47 @@ CHAKRAS.forEach((c,i)=>{
               <div class="emblem-label">${c.atua[0]}<span class="role">${c.atuaRole}</span></div>
             </div>
           </div>
-          <h4>Global Correspondences</h4>
-          <div class="pill-row">${c.atua.slice(1).map(a=>`<span class="pill">${a}</span>`).join('')}</div>
+          <h4>Full Pantheon Grid</h4>
+          <div class="pantheon-list">
+            <div class="pantheon-row"><span class="pl-label">Genesis Origin</span><span class="pl-text">${c.genesisOrigin}</span></div>
+            <div class="pantheon-row"><span class="pl-label">Samoan</span><span class="pl-text">${c.pantheon.samoan}</span></div>
+            <div class="pantheon-row"><span class="pl-label">Pacific Triangle</span><span class="pl-text">${c.pantheon.pacific}</span></div>
+            <div class="pantheon-row"><span class="pl-label">Abrahamic Mysticism</span><span class="pl-text">${c.pantheon.abrahamic}</span></div>
+            <div class="pantheon-row"><span class="pl-label">Euro & Nordic</span><span class="pl-text">${c.pantheon.nordic}</span></div>
+            <div class="pantheon-row"><span class="pl-label">Eastern & Shinto</span><span class="pl-text">${c.pantheon.eastern}</span></div>
+            <div class="pantheon-row"><span class="pl-label">Americas Indigenous</span><span class="pl-text">${c.pantheon.americas}</span></div>
+            <div class="pantheon-row"><span class="pl-label">Global Antiquity</span><span class="pl-text">${c.pantheon.antiquity}</span></div>
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="info-card">
+            <h4>Systems of Seven</h4>
+            <div class="sevens-row">
+              <div class="sevens-stat"><div class="ss-val">${c.angelNumber}</div><div class="ss-label">Angel Number</div></div>
+              <div class="sevens-stat"><div class="ss-val">${c.luckyCombo}</div><div class="ss-label">Lucky Combo</div></div>
+              <div class="sevens-stat"><div class="ss-val">${c.alchemicalMetal.split(' (')[0]}</div><div class="ss-label">Alchemical Metal</div></div>
+            </div>
+          </div>
+          <div class="info-card">
+            <h4>Hermetic Principle</h4>
+            <div class="vowel-big">${c.hermeticPrinciple}</div>
+            <p class="sub">${c.discipline}</p>
+            ${c.gurdjieffGap ? `<p class="sub" style="color:var(--aurum); margin-top:6px;">⚠ ${c.gurdjieffGap}</p>` : ''}
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="info-card">
+            <h4>Geography & Monuments</h4>
+            <p>${c.continent} · ${c.ocean}</p>
+            <p class="sub">${c.wonder}</p>
+          </div>
+          <div class="info-card">
+            <h4>Avatar Ascension</h4>
+            <div class="two-col" style="gap:10px; margin-top:4px;">
+              <div><div class="gen">✝ Christian</div><p class="sub" style="margin-top:2px;">${c.avatarChristian}</p></div>
+              <div><div class="gen">☸ Buddhist</div><p class="sub" style="margin-top:2px;">${c.avatarBuddhist}</p></div>
+            </div>
+          </div>
         </div>
         <div class="two-col">
           <div class="info-card">
@@ -1376,15 +2128,107 @@ thead.innerHTML = `<tr><th>Chakra</th><th>Note & Freq</th><th>Zodiac / Body</th>
 matrixTable.prepend(thead);
 
 /* =========================================================
-   TODAY'S CENTRE
+   LIGHT SPECTRUM BAR
+========================================================= */
+(function(){
+  const outer = document.getElementById('spectrumOuter');
+  const track = document.createElement('div');
+  track.className = 'spectrum-track';
+  outer.appendChild(track);
+  CHAKRAS.forEach(c=>{
+    const m = c.light.match(/(\d+)\D+(\d+)/);
+    if(!m) return;
+    const mid = (parseInt(m[1],10) + parseInt(m[2],10)) / 2;
+    const pct = ((700 - mid) / (700 - 380)) * 100;
+    const marker = document.createElement('div');
+    marker.className = 'spectrum-marker';
+    marker.style.left = pct + '%';
+    marker.innerHTML = `<div class="sm-dot" style="border-color:${c.colorHex}"></div><div class="sm-label"><div class="sm-name">${c.title.replace('The ','')}</div><div class="sm-nm">${Math.round(mid)} nm</div></div>`;
+    outer.appendChild(marker);
+  });
+})();
+
+/* =========================================================
+   COSMOLOGY STAGES
+========================================================= */
+const cosmoStages = document.getElementById('cosmoStages');
+COSMO_STAGES.forEach((s,i)=>{
+  const stage = document.createElement('div');
+  stage.className = 'cosmo-stage';
+  stage.innerHTML = `<div class="cosmo-icon">${s.icon}</div><h4>${s.name}</h4><p>${s.gloss}</p>`;
+  cosmoStages.appendChild(stage);
+  if(i < COSMO_STAGES.length-1){
+    const arrow = document.createElement('div');
+    arrow.className = 'cosmo-arrow';
+    arrow.textContent = '→';
+    cosmoStages.appendChild(arrow);
+  }
+});
+
+const newyearStages = document.getElementById('newyearStages');
+NEWYEAR_STAGES.forEach((s,i)=>{
+  const stage = document.createElement('div');
+  stage.className = 'cosmo-stage';
+  stage.innerHTML = `<div class="cosmo-icon">${s.icon}</div><h4>${s.name}</h4><p>${s.gloss}</p>`;
+  newyearStages.appendChild(stage);
+  if(i < NEWYEAR_STAGES.length-1){
+    const arrow = document.createElement('div');
+    arrow.className = 'cosmo-arrow';
+    arrow.textContent = '→';
+    newyearStages.appendChild(arrow);
+  }
+});
+
+/* =========================================================
+   WHAKAPAPA TREE
+========================================================= */
+(function(){
+  const tree = document.getElementById('whakapapaTree');
+  const ranginui = CHAKRAS.find(x=>x.key==='crown');
+  const papa = CHAKRAS.find(x=>x.key==='root');
+
+  const parents = document.createElement('div');
+  parents.className = 'wp-parents';
+  parents.innerHTML = `
+    <div class="wp-parent" style="border-color:${ranginui.colorHex}66;">
+      <h5>Ranginui</h5><div class="wp-role">Sky Father</div>
+    </div>
+    <span class="wp-amp">&</span>
+    <div class="wp-parent" style="border-color:${papa.colorHex}66;">
+      <h5>Papatūānuku</h5><div class="wp-role">Earth Mother</div>
+    </div>
+  `;
+  tree.appendChild(parents);
+
+  const stem = document.createElement('div');
+  stem.className = 'wp-stem';
+  tree.appendChild(stem);
+
+  const bar = document.createElement('div');
+  bar.className = 'wp-bar';
+  tree.appendChild(bar);
+
+  const children = document.createElement('div');
+  children.className = 'wp-children';
+  WHAKAPAPA_CHILDREN.forEach(ch=>{
+    const c = CHAKRAS.find(x=>x.key===ch.key);
+    const node = document.createElement('div');
+    node.className = 'wp-child';
+    node.innerHTML = `<div class="wp-dot" style="background:${c.colorHex}"></div><h6>${ch.name}</h6><div class="wp-crole">${ch.role}</div>`;
+    children.appendChild(node);
+  });
+  tree.appendChild(children);
+})();
+
+/* =========================================================
+   TODAY'S CENTRE + TONIGHT'S MOON — one combined daily readout
 ========================================================= */
 (function(){
   const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   const todayName = dayNames[new Date().getDay()];
   const c = CHAKRAS.find(x=>x.day===todayName);
   if(c){
-    document.getElementById('todayDay').textContent = todayName;
-    document.getElementById('todayName').textContent = c.title;
+    document.getElementById('todayName').textContent = `${c.title} (${todayName})`;
     document.getElementById('todayDot').style.background = c.colorHex;
     document.getElementById('todayDot').style.boxShadow = `0 0 8px ${c.colorHex}`;
     document.getElementById('todayLink').onclick = ()=>document.getElementById('panel-'+c.key).scrollIntoView({behavior:'smooth', block:'start'});
@@ -1392,6 +2236,48 @@ matrixTable.prepend(thead);
       if(el.dataset.day === todayName){ el.classList.add('is-today'); }
     });
   }
+
+  const moonIdx = getMoonPhaseIndex(new Date());
+  const moon = MARAMATAKA[moonIdx];
+  const moonMeta = ENERGY_META[moon.energy];
+  document.getElementById('moonName').textContent = moon.name;
+  document.getElementById('moonEnergy').textContent = `(${moonMeta.label})`;
+  document.getElementById('moonEnergy').style.color = moonMeta.color;
+  document.getElementById('moonDot').style.background = moonMeta.color;
+  document.getElementById('moonDot').style.boxShadow = `0 0 8px ${moonMeta.color}`;
+  document.getElementById('moonLink').onclick = ()=>document.getElementById('maramataka').scrollIntoView({behavior:'smooth', block:'start'});
+})();
+
+/* =========================================================
+   MARAMATAKA
+========================================================= */
+(function(){
+  const todayIdx = getMoonPhaseIndex(new Date());
+  document.getElementById('maramaWheel').innerHTML = maramatakaWheelSVG(todayIdx);
+
+  const tonight = MARAMATAKA[todayIdx];
+  const meta = ENERGY_META[tonight.energy];
+  document.getElementById('maramaName').textContent = tonight.name;
+  const badge = document.getElementById('maramaBadge');
+  badge.textContent = meta.label;
+  badge.style.borderColor = meta.color;
+  badge.style.color = meta.color;
+  document.getElementById('maramaGuidance').textContent = tonight.guidance;
+
+  const maramaList = document.getElementById('maramaList');
+  MARAMATAKA.forEach((p,i)=>{
+    const m = ENERGY_META[p.energy];
+    const row = document.createElement('div');
+    row.className = 'marama-row' + (i===todayIdx ? ' is-tonight' : '');
+    row.title = p.guidance;
+    row.innerHTML = `
+      <span class="mr-n">${i+1}</span>
+      <span class="mr-dot" style="background:${m.color}"></span>
+      <span class="mr-name">${p.name}</span>
+      <span class="mr-energy">${m.label}</span>
+    `;
+    maramaList.appendChild(row);
+  });
 })();
 
 /* =========================================================
@@ -1415,6 +2301,14 @@ MATARIKI_STARS.forEach(m=>{
   card.className = 'matariki-card';
   card.innerHTML = `<h5>${m.name}</h5><p>${m.domain}</p>`;
   matarikiGrid.appendChild(card);
+});
+
+const ikaroaGrid = document.getElementById('ikaroaGrid');
+IKAROA_STARS.forEach(s=>{
+  const card = document.createElement('div');
+  card.className = 'matariki-card';
+  card.innerHTML = `<h5>${s.name}</h5><div class="gen" style="margin:2px 0 6px;">${s.western}</div><p>${s.desc}</p>`;
+  ikaroaGrid.appendChild(card);
 });
 
 /* =========================================================
@@ -1443,6 +2337,120 @@ function renderCultGrid(containerId, data, icons, slotPrefix){
 }
 renderCultGrid('taongaGrid', TAONGA_PUORO, TAONGA_ICONS, 'taonga');
 renderCultGrid('kaitiakiGrid', KAITIAKI, KAITIAKI_ICONS, 'kaitiaki');
+
+/* =========================================================
+   WHARENUI
+========================================================= */
+document.getElementById('wharenuiDiagram').innerHTML = wharenuiSVG();
+const wharenuiLegend = document.getElementById('wharenuiLegend');
+WHARENUI_PARTS.forEach(p=>{
+  const c = CHAKRAS.find(x=>x.key===p.key);
+  const row = document.createElement('div');
+  row.className = 'wharenui-row';
+  row.innerHTML = `
+    <span class="wh-dot" style="background:${c.colorHex}"></span>
+    <div class="wh-text">
+      <h5>${p.name}</h5>
+      <div class="wh-role">${p.role} · ${c.title.replace('The ','')}</div>
+      <p>${p.desc}</p>
+    </div>
+  `;
+  wharenuiLegend.appendChild(row);
+});
+
+/* =========================================================
+   NGA TOI (reuses renderCultGrid + photo-slots)
+========================================================= */
+renderCultGrid('toiGrid', NGA_TOI, TOI_ICONS, 'toi');
+
+// Poi — doesn't map to a single centre, so it's appended separately in aurum rather than a chakra colour
+(function(){
+  const grid = document.getElementById('toiGrid');
+  const poiIcon = `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="50" y1="28" x2="50" y2="54" opacity="0.85"/>
+    <circle cx="50" cy="65" r="9" opacity="0.9"/>
+    <path d="M30,50 Q50,18 70,50" opacity="0.35"/>
+    <path d="M25,60 Q50,12 75,60" opacity="0.2"/>
+  </svg>`;
+  const card = document.createElement('div');
+  card.className = 'cult-card';
+  card.innerHTML = `
+    <div class="photo-slot" data-slot="toi-poi" style="--pcslot:#cf9d4e">
+      <div class="photo-slot-icon" style="color:#cf9d4e;">${poiIcon}</div>
+      <div class="photo-slot-label">+ Add Photo</div>
+      <input type="file" accept="image/*" class="photo-slot-input" />
+    </div>
+    <h5>Poi</h5>
+    <div class="cult-sub">Swung, Weighted Cord</div>
+    <p>A weighted ball swung on a cord in rhythmic, often synchronised patterns — traditionally built wrist strength and flexibility for weaving and weaponry, performed to waiata and now a signature of kapa haka.</p>
+    <span class="cult-tag" style="border-color:#cf9d4e; color:#cf9d4e;">All Centres</span>
+  `;
+  grid.appendChild(card);
+})();
+
+/* =========================================================
+   NGA RAKAU (reuses tikanga-grid style)
+========================================================= */
+const rakauGrid = document.getElementById('rakauGrid');
+NGA_RAKAU.forEach(r=>{
+  const item = document.createElement('div');
+  item.className = 'tikanga-item';
+  let resTag = '';
+  if(r.resonance){
+    const c = CHAKRAS.find(x=>x.key===r.resonance);
+    resTag = `<span class="tres" style="border-color:${c.colorHex}; color:${c.colorHex};">${c.title.replace('The ','')}</span>`;
+  }
+  item.innerHTML = `<div class="tterm">${r.term}${resTag}</div><div class="gen">${r.sub}</div><p>${r.def}</p>`;
+  rakauGrid.appendChild(item);
+});
+
+/* =========================================================
+   KAI (reuses matariki-card style)
+========================================================= */
+const kaiGrid = document.getElementById('kaiGrid');
+KAI_WAYS.forEach(k=>{
+  const card = document.createElement('div');
+  card.className = 'matariki-card';
+  let resDot = '';
+  if(k.resonance){
+    const c = CHAKRAS.find(x=>x.key===k.resonance);
+    resDot = `<span class="swatch" style="background:${c.colorHex}"></span>`;
+  }
+  card.innerHTML = `<h5>${resDot}${k.name}</h5><div class="gen" style="margin:2px 0 6px;">${k.sub}</div><p>${k.desc}</p>`;
+  kaiGrid.appendChild(card);
+});
+
+/* =========================================================
+   WAKA & WAYFINDING (reuses matariki-card style)
+========================================================= */
+const wakaGrid = document.getElementById('wakaGrid');
+WAYFINDING.forEach(w=>{
+  const card = document.createElement('div');
+  card.className = 'matariki-card';
+  card.innerHTML = `<h5>${w.name}</h5><div class="gen" style="margin:2px 0 6px;">${w.sub}</div><p>${w.desc}</p>`;
+  wakaGrid.appendChild(card);
+});
+
+/* =========================================================
+   WHAKATAUKI — random quote
+========================================================= */
+let lastWhakaIdx = -1;
+function pickWhakatauki(){
+  const textEl = document.getElementById('whakaText');
+  const glossEl = document.getElementById('whakaGloss');
+  let idx = Math.floor(Math.random()*WHAKATAUKI.length);
+  if(WHAKATAUKI.length>1 && idx===lastWhakaIdx){ idx = (idx+1)%WHAKATAUKI.length; }
+  lastWhakaIdx = idx;
+  const item = WHAKATAUKI[idx];
+  textEl.style.opacity = 0; glossEl.style.opacity = 0;
+  setTimeout(()=>{
+    textEl.textContent = item.mi;
+    glossEl.textContent = item.en;
+    textEl.style.opacity = 1; glossEl.style.opacity = 1;
+  }, 220);
+}
+document.getElementById('whakaNewBtn').addEventListener('click', pickWhakatauki);
+pickWhakatauki();
 
 document.addEventListener('click', (e)=>{
   const slot = e.target.closest('.photo-slot');
@@ -1481,6 +2489,17 @@ CHAKRAS.forEach(c=>{
 });
 
 /* =========================================================
+   PRONUNCIATION GUIDE
+========================================================= */
+const pronGrid = document.getElementById('pronGrid');
+PRONUNCIATION_RULES.forEach(r=>{
+  const card = document.createElement('div');
+  card.className = 'pron-card';
+  card.innerHTML = `<div class="pron-sound">${r.sound}</div><h5>${r.name}</h5><p>${r.desc}</p>`;
+  pronGrid.appendChild(card);
+});
+
+/* =========================================================
    GLOSSARY
 ========================================================= */
 const glossaryGrid = document.getElementById('glossaryGrid');
@@ -1489,6 +2508,33 @@ GLOSSARY.forEach(g=>{
   item.className = 'glossary-item';
   item.innerHTML = `<div class="gterm">${g.term}</div><div class="gen">${g.en}</div><p>${g.def}</p>`;
   glossaryGrid.appendChild(item);
+});
+
+/* =========================================================
+   TIKANGA
+========================================================= */
+const tikangaGrid = document.getElementById('tikangaGrid');
+TIKANGA_TERMS.forEach(t=>{
+  const item = document.createElement('div');
+  item.className = 'tikanga-item';
+  let resTag = '';
+  if(t.resonance){
+    const c = CHAKRAS.find(x=>x.key===t.resonance);
+    resTag = `<span class="tres" style="border-color:${c.colorHex}; color:${c.colorHex};">${c.title.replace('The ','')}</span>`;
+  }
+  item.innerHTML = `<div class="tterm">${t.term}${resTag}</div><p>${t.def}</p>`;
+  tikangaGrid.appendChild(item);
+});
+
+/* =========================================================
+   HOW TO USE THIS
+========================================================= */
+const howtoList = document.getElementById('howtoList');
+HOWTO_STEPS.forEach((s,i)=>{
+  const row = document.createElement('div');
+  row.className = 'howto-row';
+  row.innerHTML = `<div class="howto-num">${String(i+1).padStart(2,'0')}</div><div><h5>${s.title}</h5><p>${s.desc}</p></div>`;
+  howtoList.appendChild(row);
 });
 
 /* =========================================================
@@ -7088,4 +8134,3 @@ window.__BONE_B64__ = "Z2xURgIAAAAQNjoA0AcAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyL
 
 </body>
 </html>
-
