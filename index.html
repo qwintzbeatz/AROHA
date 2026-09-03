@@ -818,6 +818,18 @@ footer{padding:80px 0 50px; border-top:1px solid var(--line);}
   </div>
 </section>
 
+<section id="baduanjin">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <p class="eyebrow">Bā Duàn Jǐn — 八段錦</p>
+      <h2 class="h">The Eight Pieces of Brocade.</h2>
+      <p class="lede">A different tradition, the same body. This Chinese qigong set predates most written records of either system, and each of its eight movements already targets an organ this page has separately paired with a centre — seven line up almost exactly.</p>
+    </div>
+    <div class="cult-grid" id="baduanjinGrid"></div>
+    <p class="cult-note">Click any frame to drop in your own photo — previews stay in your browser for this session only.</p>
+  </div>
+</section>
+
 <section id="kai">
   <div class="wrap reveal">
     <div class="section-head">
@@ -1655,6 +1667,61 @@ const HOWTO_STEPS = [
   {title:'Zoom out with the wider cycles', desc:'Use the Ascending / Descending Path to see where today fits in a longer arc, and the Maramataka to see whether tonight favours starting something new or resting.'}
 ];
 
+const BADUANJIN = {
+  root:   {name:'Liǎng Shǒu Pān Zú Gù Shèn Yāo', en:'Two Hands Hold the Feet to Strengthen the Kidneys & Waist', organ:'Kidneys', desc:"Bending forward to hold the feet, then rising — strengthens the lower back and the kidneys, the body's foundational reserve of vitality."},
+  sacral: {name:'Wò Quán Nù Mù Zēng Lì Qì', en:'Clench the Fists and Glare Fiercely', organ:'Liver / Qi Strength', desc:'A deep stance with fists driven forward and a fierce gaze — builds raw internal power and stamina through the hips and legs.'},
+  solar:  {name:'Tiáo Lǐ Pí Wèi Xū Dān Jǔ', en:'Single Hand Raises to Regulate the Spleen & Stomach', organ:'Spleen & Stomach', desc:'One arm presses up, the other down, in opposition — aids digestion and the metabolic fire at the centre of the body.'},
+  heart:  {name:'Yáo Tóu Bǎi Wěi Qù Xīn Huǒ', en:'Sway the Head and Shake the Tail to Clear Heart Fire', organ:'Heart', desc:'A low stance with the head circling and swaying — releases excess heat and agitation held in the chest.'},
+  throat: {name:'Zuǒ Yòu Kāi Gōng Sì Shè Diāo', en:'Drawing the Bow to Shoot the Hawk', organ:'Lungs', desc:'Arms draw an invisible bow, chest opening wide — expands lung capacity and deepens the breath.'},
+  eye:    {name:'Wǔ Láo Qī Shāng Wàng Hòu Qiáo', en:'The Wise Owl Gazes Backwards', organ:'Nervous System', desc:'The head and gaze turn slowly behind the body — said to relieve accumulated strain and sharpen inner awareness.'},
+  crown:  {name:'Liǎng Shǒu Tuō Tiān', en:'Two Hands Hold Up the Heavens', organ:'Triple Burner', desc:'Arms rise overhead in a full stretch toward the sky — regulates the whole body as a single connected system.'}
+};
+
+const BADUANJIN_ICONS = {
+  root: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="50" cy="28" r="7" opacity="0.9"/>
+    <path d="M50,35 Q54,52 50,68" opacity="0.85"/>
+    <path d="M50,42 L38,74" opacity="0.8"/><path d="M50,42 L62,74" opacity="0.8"/>
+    <line x1="42" y1="80" x2="42" y2="88" opacity="0.7"/><line x1="58" y1="80" x2="58" y2="88" opacity="0.7"/>
+  </svg>`,
+  sacral: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="50" cy="26" r="7" opacity="0.9"/>
+    <line x1="50" y1="33" x2="50" y2="60" opacity="0.9"/>
+    <path d="M50,40 L30,48" opacity="0.85"/><path d="M50,40 L70,48" opacity="0.85"/>
+    <path d="M50,60 L28,85" opacity="0.85"/><path d="M50,60 L72,85" opacity="0.85"/>
+  </svg>`,
+  solar: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="50" cy="26" r="7" opacity="0.9"/>
+    <line x1="50" y1="33" x2="50" y2="66" opacity="0.9"/>
+    <path d="M50,38 L30,18" opacity="0.85"/><path d="M50,38 L70,58" opacity="0.85"/>
+    <line x1="50" y1="66" x2="40" y2="90" opacity="0.7"/><line x1="50" y1="66" x2="60" y2="90" opacity="0.7"/>
+  </svg>`,
+  heart: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="50" cy="28" r="7" opacity="0.9"/>
+    <path d="M44,26 Q50,18 56,26" opacity="0.5"/>
+    <line x1="50" y1="35" x2="50" y2="63" opacity="0.9"/>
+    <path d="M50,60 L32,88" opacity="0.8"/><path d="M50,60 L68,88" opacity="0.8"/>
+  </svg>`,
+  throat: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="50" cy="26" r="7" opacity="0.9"/>
+    <line x1="50" y1="33" x2="50" y2="63" opacity="0.9"/>
+    <path d="M50,40 L22,36" opacity="0.85"/><path d="M50,40 L78,40" opacity="0.85"/>
+    <line x1="50" y1="63" x2="42" y2="88" opacity="0.7"/><line x1="50" y1="63" x2="58" y2="88" opacity="0.7"/>
+  </svg>`,
+  eye: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="46" cy="28" r="7" opacity="0.9"/>
+    <line x1="50" y1="35" x2="50" y2="63" opacity="0.9"/>
+    <path d="M50,42 L35,58" opacity="0.7"/><path d="M50,42 L65,58" opacity="0.7"/>
+    <line x1="50" y1="63" x2="42" y2="88" opacity="0.7"/><line x1="50" y1="63" x2="58" y2="88" opacity="0.7"/>
+  </svg>`,
+  crown: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="50" cy="32" r="7" opacity="0.9"/>
+    <line x1="50" y1="39" x2="50" y2="66" opacity="0.9"/>
+    <path d="M50,42 L34,16" opacity="0.85"/><path d="M50,42 L66,16" opacity="0.85"/>
+    <line x1="50" y1="66" x2="42" y2="90" opacity="0.7"/><line x1="50" y1="66" x2="58" y2="90" opacity="0.7"/>
+  </svg>`
+};
+
 const CHAKRAS = [
   {
     key:'root', day:'Saturday', planet:'Saturn', note:'C₃', color:'var(--c-root)', colorHex:'#b8443a',
@@ -2403,6 +2470,53 @@ NGA_RAKAU.forEach(r=>{
   item.innerHTML = `<div class="tterm">${r.term}${resTag}</div><div class="gen">${r.sub}</div><p>${r.def}</p>`;
   rakauGrid.appendChild(item);
 });
+
+/* =========================================================
+   BĀ DUÀN JǏN — Eight Pieces of Brocade
+========================================================= */
+(function(){
+  const grid = document.getElementById('baduanjinGrid');
+  CHAKRAS.forEach(c=>{
+    const item = BADUANJIN[c.key];
+    const card = document.createElement('div');
+    card.className = 'cult-card';
+    card.innerHTML = `
+      <div class="photo-slot" data-slot="baduanjin-${c.key}" style="--pcslot:${c.colorHex}">
+        <div class="photo-slot-icon">${BADUANJIN_ICONS[c.key]}</div>
+        <div class="photo-slot-label">+ Add Photo</div>
+        <input type="file" accept="image/*" class="photo-slot-input" />
+      </div>
+      <h5>${item.name}</h5>
+      <div class="cult-sub">${item.en} · ${item.organ}</div>
+      <p>${item.desc}</p>
+      <span class="cult-tag" style="border-color:${c.colorHex}; color:${c.colorHex};">${c.title.replace('The ','')}</span>
+    `;
+    grid.appendChild(card);
+  });
+
+  // Eighth movement — doesn't target one organ/centre, appended separately in aurum
+  const bounceIcon = `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="50" cy="26" r="7" opacity="0.9"/>
+    <line x1="50" y1="33" x2="50" y2="60" opacity="0.9"/>
+    <line x1="50" y1="42" x2="35" y2="52" opacity="0.7"/><line x1="50" y1="42" x2="65" y2="52" opacity="0.7"/>
+    <line x1="50" y1="60" x2="44" y2="82" opacity="0.85"/><line x1="50" y1="60" x2="56" y2="82" opacity="0.85"/>
+    <path d="M38,86 Q50,80 62,86" opacity="0.4"/>
+  </svg>`;
+  const card = document.createElement('div');
+  card.className = 'cult-card';
+  card.innerHTML = `
+    <div class="photo-slot" data-slot="baduanjin-eighth" style="--pcslot:#cf9d4e">
+      <div class="photo-slot-icon" style="color:#cf9d4e;">${bounceIcon}</div>
+      <div class="photo-slot-label">+ Add Photo</div>
+      <input type="file" accept="image/*" class="photo-slot-input" />
+    </div>
+    <h5>Bèi Hòu Qī Diān Bǎi Bìng Xiāo</h5>
+    <div class="cult-sub">Bouncing on the Heels · Whole Body</div>
+    <p>A gentle rise onto the toes and drop onto the heels, repeated — said to shake off a hundred illnesses through the whole frame at once, closing the set the way the last movement closes a full round.</p>
+    <span class="cult-tag" style="border-color:#cf9d4e; color:#cf9d4e;">All Centres</span>
+  `;
+  grid.appendChild(card);
+})();
 
 /* =========================================================
    KAI (reuses matariki-card style)
