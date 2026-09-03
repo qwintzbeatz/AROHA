@@ -4,7 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>AROHA — The Unified Frequency Spectrum</title>
-<link rel="icon" type="image/x-icon" href="https://github.com/qwintzbeatz/AROHA/blob/main/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
@@ -223,6 +222,20 @@ h2.h{font-family:var(--font-display); font-weight:600; font-size:clamp(32px,4.4v
 .emblem-row{display:flex; flex-wrap:wrap; gap:22px; margin-bottom:16px;}
 
 .pantheon-list{display:grid; gap:0;}
+
+.pantheon-details summary{
+  cursor:pointer; list-style:none; display:flex; align-items:center; gap:8px;
+  font-family:var(--font-mono); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--star-dim); padding:2px 0; user-select:none;
+}
+.pantheon-details summary::-webkit-details-marker{display:none;}
+.pantheon-details summary::before{
+  content:'▸'; display:inline-block; color:var(--pc); transition:transform .2s; font-size:10px;
+}
+.pantheon-details[open] summary::before{transform:rotate(90deg);}
+.pantheon-details summary:hover{color:var(--star);}
+.pantheon-details .pd-hint{text-transform:none; letter-spacing:0; opacity:0.7; font-size:10px;}
+.pantheon-details .pantheon-list{margin-top:14px;}
 .pantheon-row{display:grid; grid-template-columns:130px 1fr; gap:14px; padding:10px 0; border-top:1px solid var(--line);}
 .pantheon-row:first-child{border-top:none;}
 .pantheon-row .pl-label{font-family:var(--font-mono); font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--star-dim);}
@@ -419,6 +432,8 @@ table.matrix tr:hover td{background:rgba(255,255,255,.02);}
 .session-close{position:absolute; top:-40px; right:0; background:transparent; border:none; color:var(--star-dim); font-size:20px; cursor:pointer;}
 .session-close:hover{color:var(--star);}
 .session-chakra{font-family:var(--font-mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--cur); margin-bottom:14px;}
+.voice-toggle{display:block; margin:0 auto 22px; font-size:11px;}
+.voice-toggle.on{border-color:var(--cur); color:var(--cur); background:rgba(255,255,255,.04);}
 .session-phase{font-family:var(--font-display); font-size:36px; margin-bottom:18px; font-weight:600;}
 .session-timer{font-family:var(--font-mono); font-size:64px; color:var(--star); margin-bottom:18px; font-weight:500;}
 .session-desc{font-size:14.5px; color:var(--star-dim); line-height:1.6; margin-bottom:28px; min-height:60px;}
@@ -487,7 +502,7 @@ table.matrix tr:hover td{background:rgba(255,255,255,.02);}
   color:var(--star); margin-bottom:18px; transition:opacity .25s;
 }
 .whaka-gloss{font-size:14.5px; color:var(--star-dim); line-height:1.6; margin-bottom:32px; font-style:italic; transition:opacity .25s;}
-.whaka-card .btn{margin:0 auto;}
+.whaka-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
 
 /* MARAMATAKA */
 .marama-grid{display:grid; grid-template-columns:auto 1fr; gap:48px; align-items:center; margin-bottom:44px;}
@@ -547,6 +562,18 @@ table.matrix tr:hover td{background:rgba(255,255,255,.02);}
 .pron-sound{font-family:var(--font-display); font-size:26px; color:var(--aurum); margin-bottom:8px; font-weight:600;}
 .pron-card h5{font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--star-dim); margin:0 0 8px;}
 .pron-card p{font-size:13px; color:var(--star-dim); line-height:1.6; margin:0;}
+
+.voice-settings{border:1px solid var(--line); border-radius:16px; padding:26px 28px; margin-top:32px;}
+.voice-controls{display:flex; gap:26px; flex-wrap:wrap; align-items:center;}
+.voice-field{display:flex; flex-direction:column; gap:6px;}
+.voice-field label{font-family:var(--font-mono); font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--star-dim);}
+.voice-field select{
+  background:var(--void-2); color:var(--star); border:1px solid var(--line); border-radius:8px;
+  padding:9px 12px; font-family:var(--font-body); font-size:13px; min-width:220px; max-width:100%;
+}
+.voice-check{display:flex; align-items:center; gap:9px; font-size:13px; color:var(--star-dim); cursor:pointer;}
+.voice-check input{accent-color:var(--aurum); width:15px; height:15px; cursor:pointer;}
+.voice-note{font-family:var(--font-mono); font-size:11px; color:var(--aurum); margin:16px 0 0; opacity:0.9;}
 
 /* SPECTRUM BAR */
 .spectrum-outer{position:relative; margin:8px 0 70px;}
@@ -864,7 +891,10 @@ footer{padding:80px 0 50px; border-top:1px solid var(--line);}
     <div class="whaka-card">
       <div class="whaka-text" id="whakaText">—</div>
       <div class="whaka-gloss" id="whakaGloss">—</div>
-      <button class="btn" id="whakaNewBtn">⟳ New Whakataukī</button>
+      <div class="whaka-btns">
+        <button class="btn" id="whakaNewBtn">⟳ New Whakataukī</button>
+        <button class="btn tiny" id="whakaReadBtn">🔊 Read Aloud</button>
+      </div>
     </div>
   </div>
 </section>
@@ -943,6 +973,22 @@ footer{padding:80px 0 50px; border-top:1px solid var(--line);}
       <p class="lede">This page is dense with Te Reo Māori. Five rules cover almost all of it.</p>
     </div>
     <div class="pron-grid" id="pronGrid"></div>
+
+    <div class="voice-settings" id="voiceSettings">
+      <p class="eyebrow" style="margin-bottom:12px;">Read-Aloud Voice</p>
+      <p class="lede" style="margin-bottom:18px; font-size:14px;">This site's read-aloud features (the whakataukī and the guided session) use your browser's built-in voice, which usually doesn't have a real Te Reo Māori model — it reads Māori spelling with English pronunciation rules. Two things help:</p>
+      <div class="voice-controls">
+        <div class="voice-field">
+          <label for="voiceSelect">Voice</label>
+          <select id="voiceSelect"><option value="">Loading voices…</option></select>
+        </div>
+        <label class="voice-check">
+          <input type="checkbox" id="phoneticToggle" checked>
+          <span>Phonetic approximation (macrons → doubled vowels, "wh" → "f")</span>
+        </label>
+      </div>
+      <p class="voice-note" id="voiceNote"></p>
+    </div>
   </div>
 </section>
 
@@ -1029,6 +1075,7 @@ footer{padding:80px 0 50px; border-top:1px solid var(--line);}
   <div class="session-modal">
     <button class="session-close" id="sessionClose">✕</button>
     <div class="session-chakra" id="sessionChakraName">—</div>
+    <button class="today-link voice-toggle" id="voiceToggle">🔈 Guided Voice: Off</button>
     <div class="session-phase" id="sessionPhase">—</div>
     <div class="session-timer" id="sessionTimer">00:00</div>
     <div class="session-desc" id="sessionDesc"></div>
@@ -2098,17 +2145,19 @@ CHAKRAS.forEach((c,i)=>{
               <div class="emblem-label">${c.atua[0]}<span class="role">${c.atuaRole}</span></div>
             </div>
           </div>
-          <h4>Full Pantheon Grid</h4>
-          <div class="pantheon-list">
-            <div class="pantheon-row"><span class="pl-label">Genesis Origin</span><span class="pl-text">${c.genesisOrigin}</span></div>
-            <div class="pantheon-row"><span class="pl-label">Samoan</span><span class="pl-text">${c.pantheon.samoan}</span></div>
-            <div class="pantheon-row"><span class="pl-label">Pacific Triangle</span><span class="pl-text">${c.pantheon.pacific}</span></div>
-            <div class="pantheon-row"><span class="pl-label">Abrahamic Mysticism</span><span class="pl-text">${c.pantheon.abrahamic}</span></div>
-            <div class="pantheon-row"><span class="pl-label">Euro & Nordic</span><span class="pl-text">${c.pantheon.nordic}</span></div>
-            <div class="pantheon-row"><span class="pl-label">Eastern & Shinto</span><span class="pl-text">${c.pantheon.eastern}</span></div>
-            <div class="pantheon-row"><span class="pl-label">Americas Indigenous</span><span class="pl-text">${c.pantheon.americas}</span></div>
-            <div class="pantheon-row"><span class="pl-label">Global Antiquity</span><span class="pl-text">${c.pantheon.antiquity}</span></div>
-          </div>
+          <details class="pantheon-details">
+            <summary>Full Pantheon Grid <span class="pd-hint">— 8 more traditions</span></summary>
+            <div class="pantheon-list">
+              <div class="pantheon-row"><span class="pl-label">Genesis Origin</span><span class="pl-text">${c.genesisOrigin}</span></div>
+              <div class="pantheon-row"><span class="pl-label">Samoan</span><span class="pl-text">${c.pantheon.samoan}</span></div>
+              <div class="pantheon-row"><span class="pl-label">Pacific Triangle</span><span class="pl-text">${c.pantheon.pacific}</span></div>
+              <div class="pantheon-row"><span class="pl-label">Abrahamic Mysticism</span><span class="pl-text">${c.pantheon.abrahamic}</span></div>
+              <div class="pantheon-row"><span class="pl-label">Euro & Nordic</span><span class="pl-text">${c.pantheon.nordic}</span></div>
+              <div class="pantheon-row"><span class="pl-label">Eastern & Shinto</span><span class="pl-text">${c.pantheon.eastern}</span></div>
+              <div class="pantheon-row"><span class="pl-label">Americas Indigenous</span><span class="pl-text">${c.pantheon.americas}</span></div>
+              <div class="pantheon-row"><span class="pl-label">Global Antiquity</span><span class="pl-text">${c.pantheon.antiquity}</span></div>
+            </div>
+          </details>
         </div>
         <div class="two-col">
           <div class="info-card">
@@ -2565,6 +2614,21 @@ function pickWhakatauki(){
   }, 220);
 }
 document.getElementById('whakaNewBtn').addEventListener('click', pickWhakatauki);
+document.getElementById('whakaReadBtn').addEventListener('click', ()=>{
+  if(!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const item = WHAKATAUKI[lastWhakaIdx];
+  if(!item) return;
+  const voice = getChosenVoice();
+  const u1 = new SpeechSynthesisUtterance(respellMaori(item.mi));
+  if(voice){ u1.voice = voice; } else { u1.lang = 'mi-NZ'; }
+  u1.rate = 0.85;
+  const u2 = new SpeechSynthesisUtterance(item.en);
+  u2.lang = 'en-US';
+  u2.rate = 0.95;
+  u1.onend = ()=> window.speechSynthesis.speak(u2);
+  window.speechSynthesis.speak(u1);
+});
 pickWhakatauki();
 
 document.addEventListener('click', (e)=>{
@@ -2613,6 +2677,80 @@ PRONUNCIATION_RULES.forEach(r=>{
   card.innerHTML = `<div class="pron-sound">${r.sound}</div><h5>${r.name}</h5><p>${r.desc}</p>`;
   pronGrid.appendChild(card);
 });
+
+/* =========================================================
+   VOICE SETTINGS — shared by whakataukī reader + guided session
+========================================================= */
+let selectedVoiceURI = '';
+let phoneticModeOn = true;
+const speechIsSupported = ('speechSynthesis' in window);
+
+function respellMaori(text){
+  if(!phoneticModeOn) return text;
+  return text
+    .replace(/ā/g,'aa').replace(/Ā/g,'Aa')
+    .replace(/ē/g,'ee').replace(/Ē/g,'Ee')
+    .replace(/ī/g,'ii').replace(/Ī/g,'Ii')
+    .replace(/ō/g,'oo').replace(/Ō/g,'Oo')
+    .replace(/ū/g,'uu').replace(/Ū/g,'Uu')
+    .replace(/wh/g,'f').replace(/Wh/g,'F').replace(/WH/g,'F');
+}
+
+function getChosenVoice(){
+  if(!speechIsSupported || !selectedVoiceURI) return null;
+  return window.speechSynthesis.getVoices().find(v=>v.voiceURI===selectedVoiceURI) || null;
+}
+
+(function initVoiceSettings(){
+  if(!speechIsSupported){
+    const settings = document.getElementById('voiceSettings');
+    if(settings) settings.style.display = 'none';
+    return;
+  }
+  const select = document.getElementById('voiceSelect');
+  const note = document.getElementById('voiceNote');
+  const phoneticCheckbox = document.getElementById('phoneticToggle');
+
+  function populateVoices(){
+    const voices = window.speechSynthesis.getVoices();
+    if(!voices.length) return;
+    select.innerHTML = '';
+    const autoOpt = document.createElement('option');
+    autoOpt.value = '';
+    autoOpt.textContent = 'Auto (system default)';
+    select.appendChild(autoOpt);
+
+    const maoriVoices = voices.filter(v=>/^mi(-|_|$)/i.test(v.lang));
+    maoriVoices.forEach(v=>{
+      const opt = document.createElement('option');
+      opt.value = v.voiceURI;
+      opt.textContent = `★ ${v.name} (${v.lang}) — Te Reo Māori`;
+      select.appendChild(opt);
+    });
+    voices.filter(v=>!/^mi(-|_|$)/i.test(v.lang)).forEach(v=>{
+      const opt = document.createElement('option');
+      opt.value = v.voiceURI;
+      opt.textContent = `${v.name} (${v.lang})`;
+      select.appendChild(opt);
+    });
+
+    if(maoriVoices.length){
+      select.value = maoriVoices[0].voiceURI;
+      selectedVoiceURI = maoriVoices[0].voiceURI;
+      note.textContent = `Found a Te Reo Māori voice on this device — using "${maoriVoices[0].name}" by default.`;
+    } else {
+      note.textContent = 'No Te Reo Māori voice found on this device — using phonetic approximation with the system default instead.';
+    }
+  }
+
+  populateVoices();
+  if(window.speechSynthesis.onvoiceschanged !== undefined){
+    window.speechSynthesis.onvoiceschanged = populateVoices;
+  }
+
+  select.addEventListener('change', ()=>{ selectedVoiceURI = select.value; });
+  phoneticCheckbox.addEventListener('change', ()=>{ phoneticModeOn = phoneticCheckbox.checked; });
+})();
 
 /* =========================================================
    GLOSSARY
@@ -2993,6 +3131,20 @@ const SESSION_PHASES = [
 
 let sessionTimerHandle = null;
 let sessionState = null;
+let voiceEnabled = false;
+const voiceSupported = ('speechSynthesis' in window);
+
+function speakPhase(text){
+  if(!voiceEnabled || !voiceSupported) return;
+  window.speechSynthesis.cancel();
+  const utter = new SpeechSynthesisUtterance(text);
+  const voice = (typeof getChosenVoice === 'function') ? getChosenVoice() : null;
+  if(voice){ utter.voice = voice; }
+  utter.rate = 0.92;
+  utter.pitch = 1.0;
+  utter.volume = 0.9;
+  window.speechSynthesis.speak(utter);
+}
 
 function sessionCurrentFreq(){
   const c = sessionState.chakra;
@@ -3006,6 +3158,7 @@ function runSessionPhase(){
   document.getElementById('sessionDesc').textContent = phase.desc(c);
   sessionState.remaining = phase.seconds;
   updateSessionUI();
+  speakPhase(`${phase.name}. ${phase.desc(c)}`);
 
   stopTone();
   if(phase.name==='Tone'){
@@ -3043,6 +3196,9 @@ function startSession(key){
   document.getElementById('sessionOverlay').classList.add('show');
   document.getElementById('sessionChakraName').textContent = c.title;
   document.getElementById('sessionPauseBtn').textContent = 'Pause';
+  const voiceBtn = document.getElementById('voiceToggle');
+  voiceBtn.style.display = voiceSupported ? 'block' : 'none';
+  speakPhase(`Beginning a guided session for the ${c.title.replace('The ','')} centre.`);
   runSessionPhase();
   if(sessionTimerHandle) clearInterval(sessionTimerHandle);
   sessionTimerHandle = setInterval(tickSession, 1000);
@@ -3051,9 +3207,21 @@ function startSession(key){
 function endSession(){
   if(sessionTimerHandle){ clearInterval(sessionTimerHandle); sessionTimerHandle = null; }
   stopTone();
+  if(voiceSupported) window.speechSynthesis.cancel();
   document.getElementById('sessionOverlay').classList.remove('show');
   sessionState = null;
 }
+
+document.getElementById('voiceToggle').addEventListener('click', (e)=>{
+  voiceEnabled = !voiceEnabled;
+  e.target.textContent = voiceEnabled ? '🔊 Guided Voice: On' : '🔈 Guided Voice: Off';
+  e.target.classList.toggle('on', voiceEnabled);
+  if(!voiceEnabled && voiceSupported){ window.speechSynthesis.cancel(); }
+  else if(voiceEnabled && sessionState){
+    const phase = SESSION_PHASES[sessionState.phaseIndex];
+    speakPhase(`${phase.name}. ${phase.desc(sessionState.chakra)}`);
+  }
+});
 
 document.addEventListener('click', (e)=>{
   const btn = e.target.closest('.session-btn');
@@ -3076,6 +3244,7 @@ document.getElementById('sessionPauseBtn').addEventListener('click', (e)=>{
   const c = sessionState.chakra;
   if(sessionState.paused){
     stopTone();
+    if(voiceSupported) window.speechSynthesis.cancel();
   } else if(phase.name==='Tone'){
     playTone(sessionCurrentFreq(), c.key, `${c.title} · ${c.note}`, 'pure');
   } else if(phase.name==='Vowel Toning'){
