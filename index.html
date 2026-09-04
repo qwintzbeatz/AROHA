@@ -556,6 +556,22 @@ table.matrix tr:hover td{background:rgba(255,255,255,.02);}
 /* TE IKAROA */
 .ikaroa-intro{font-size:16px; line-height:1.8; color:var(--star-dim); max-width:640px; margin-bottom:34px;}
 
+/* TWELVEFOLD WHEEL */
+.twelvefold-grid{display:flex; flex-direction:column; align-items:center; gap:40px;}
+.twelvefold-wheel{width:190px;}
+.twelvefold-wheel svg{width:100%; height:auto; display:block;}
+.twelvefold-legend{display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:14px; width:100%;}
+.tf-card{border:1px solid var(--line); border-radius:14px; padding:16px 18px;}
+.tf-card-top{display:flex; align-items:center; gap:10px; margin-bottom:10px;}
+.tf-dot{width:10px; height:10px; border-radius:50%; flex-shrink:0;}
+.tf-month{font-family:var(--font-display); font-size:15px; color:var(--star); font-weight:600;}
+.tf-key{font-family:var(--font-mono); font-size:9.5px; color:var(--star-dim); margin-top:1px;}
+.tf-line{font-size:12px; color:var(--star-dim); line-height:1.5; padding:6px 0; border-top:1px solid var(--line);}
+.tf-line:first-of-type{border-top:none; padding-top:0;}
+.tf-line b{color:var(--star); font-weight:600;}
+.tf-yin{color:#8fa8c9;}
+.tf-yang{color:#d9a15f;}
+
 /* PRONUNCIATION */
 .pron-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:14px;}
 .pron-card{border:1px solid var(--line); border-radius:14px; padding:20px;}
@@ -576,6 +592,7 @@ table.matrix tr:hover td{background:rgba(255,255,255,.02);}
 .voice-note{font-family:var(--font-mono); font-size:11px; color:var(--aurum); margin:16px 0 0; opacity:0.9;}
 
 /* SPECTRUM BAR */
+.aniwaniwa-block{border-top:1px solid var(--line); padding-top:30px; margin-bottom:14px;}
 .spectrum-outer{position:relative; margin:8px 0 70px;}
 .spectrum-track{height:10px; border-radius:6px; background:linear-gradient(to right, #d1453c, #d9803d, #d3ab3f, #4f8f6b, #3f7ea8, #5a5aa0, #8a5aa8);}
 .spectrum-marker{position:absolute; top:-5px; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center;}
@@ -712,13 +729,14 @@ footer{padding:80px 0 50px; border-top:1px solid var(--line);}
 <section id="pathways">
   <div class="wrap reveal">
     <div class="section-head">
-      <p class="eyebrow">Two Vertical Pathways</p>
-      <h2 class="h">Ascend, or bring it down to earth.</h2>
-      <p class="lede">The same seven tones, run in either direction. Ascending liberates; descending manifests.</p>
+      <p class="eyebrow">Three Pathways</p>
+      <h2 class="h">Ascend, descend, or just follow the week.</h2>
+      <p class="lede">The same seven tones, run three ways. Ascending liberates; descending manifests; the week just runs Monday to Sunday as it actually falls on the calendar.</p>
     </div>
     <div class="path-toggle">
       <button class="active" data-dir="asc">↑ Ascending — Evolution</button>
       <button data-dir="desc">↓ Descending — Manifestation</button>
+      <button data-dir="week">📅 Week — Monday to Sunday</button>
     </div>
     <div class="path-flow" id="pathFlow"></div>
     <div class="path-arpeggio">
@@ -759,6 +777,20 @@ footer{padding:80px 0 50px; border-top:1px solid var(--line);}
     </div>
     <p class="ikaroa-intro">The spiral of stars behind the figure in this site's opening image isn't abstract décor — it's Te Ikaroa, the Milky Way, the great band of stars this whole tradition of sky-reading sits inside. Matariki is one cluster within it. A few of the other stars used for navigation and seasonal marking sit below.</p>
     <div class="matariki-grid" id="ikaroaGrid"></div>
+  </div>
+</section>
+
+<section id="twelvefold">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <p class="eyebrow">A Twelve-Fold Wheel</p>
+      <h2 class="h">Circle of fifths, zodiac, colour, and the Daoist clock.</h2>
+      <p class="lede">Five twelve-part cycles on one wheel. Two are real, independently documented systems: the <b>zodiac</b> signs use their actual start dates, and the <b>Daoist organ clock</b> is the genuine Traditional Chinese Medicine cycle — 24 hours split into twelve real two-hour windows, several of which (Liver, Heart, Kidney, Spleen) already appear in the Eight Pieces of Brocade above. The <b>musical key</b> and <b>colour</b> are this site's own construction, lined up by position rather than by any historical source.</p>
+    </div>
+    <div class="twelvefold-grid">
+      <div class="twelvefold-wheel" id="twelvefoldWheel"></div>
+      <div class="twelvefold-legend" id="twelvefoldLegend"></div>
+    </div>
   </div>
 </section>
 
@@ -957,6 +989,10 @@ footer{padding:80px 0 50px; border-top:1px solid var(--line);}
       <p class="eyebrow">Master Correlation</p>
       <h2 class="h">The diagnostic matrix.</h2>
       <p class="lede">Every centre, cross-referenced — note and frequency, ruling body, Matariki star, number and geometry, mudra, and seed mantra.</p>
+    </div>
+    <div class="aniwaniwa-block">
+      <p class="eyebrow" style="margin-bottom:10px;">Aniwaniwa</p>
+      <p class="lede" style="margin-bottom:22px;">Read top to bottom, the seven centres already run red through violet — the same arc named Aniwaniwa, the rainbow, in Te Ao Māori. Uenuku is the atua most closely tied to it: a rainbow-form ancestor, read as an omen and a sign of change in the sky. The Maramataka night <b>Ouenuku</b> carries his name — a night the site already flags as changeable, weather turning quickly, the way a rainbow itself only appears at the edge of a change in the weather.</p>
     </div>
     <div class="spectrum-outer" id="spectrumOuter"></div>
     <div class="tablewrap">
@@ -1604,7 +1640,7 @@ const MARAMATAKA = [
   {name:'Whiro', energy:'rest', guidance:'New moon, no moon visible. Lowest energy of the cycle — rest, reflect, avoid major new ventures.'},
   {name:'Tirea', energy:'low', guidance:'Energy just beginning to stir. A quiet night for preparation rather than action.'},
   {name:'Hoata', energy:'medium', guidance:'A fair night with rising energy, suited to lighter tasks and routine work.'},
-  {name:'Ouenuku', energy:'medium', guidance:'Weather and mood can shift quickly — proceed with some caution.'},
+  {name:'Ouenuku', energy:'medium', guidance:'Named for Uenuku, the rainbow atua — weather and mood can shift quickly, the way a rainbow marks a change already underway. Proceed with some caution.'},
   {name:'Okoro', energy:'medium', guidance:'Steady, moderate energy. A reasonable day for ordinary work.'},
   {name:'Tamatea-kai-ariki', energy:'low', guidance:'The first of the unsettled Tamatea nights — changeable, not ideal for planting or fishing.'},
   {name:'Tamatea-a-ngana', energy:'low', guidance:'Still unpredictable. A night for patience rather than new starts.'},
@@ -1687,6 +1723,54 @@ const IKAROA_STARS = [
   {name:'Rehua', western:'Antares', desc:'A red giant associated with high chieftainship and the peak of summer, when Rehua is said to bring warmth and abundance.'},
   {name:'Puanga', western:'Rigel', desc:'Used in place of Matariki as the New Year marker by several iwi, particularly in the west and south, where Matariki sits low or unseen on the horizon.'}
 ];
+
+/* Twelve-fold wheel — circle of fifths, calendar months, and a 12-hue
+   colour wheel, lined up by position (an original synthesis for this
+   site). The zodiac column uses each sign's real start date. The TCM
+   column is the actual Daoist organ clock — 24 hours split into twelve
+   real two-hour windows — positioned against the months by index only,
+   the same constructed pairing as the rest of the wheel. */
+const TWELVE_FOLD = [
+  {month:'January', key:'C Major', color:'#d1453c', colorName:'Red',
+   zodiac:'Aquarius', organTime:'3–5 AM', organ:'Lung', polarity:'Yin'},
+  {month:'February', key:'G Major', color:'#d9683d', colorName:'Red-Orange',
+   zodiac:'Pisces', organTime:'5–7 AM', organ:'Large Intestine', polarity:'Yang'},
+  {month:'March', key:'D Major', color:'#d9803d', colorName:'Orange',
+   zodiac:'Aries', organTime:'7–9 AM', organ:'Stomach', polarity:'Yang'},
+  {month:'April', key:'A Major', color:'#d3a13f', colorName:'Yellow-Orange',
+   zodiac:'Taurus', organTime:'9–11 AM', organ:'Spleen', polarity:'Yin'},
+  {month:'May', key:'E Major', color:'#d3c23f', colorName:'Yellow',
+   zodiac:'Gemini', organTime:'11 AM–1 PM', organ:'Heart', polarity:'Yin'},
+  {month:'June', key:'B Major', color:'#a8c94f', colorName:'Yellow-Green',
+   zodiac:'Cancer', organTime:'1–3 PM', organ:'Small Intestine', polarity:'Yang'},
+  {month:'July', key:'F♯ / G♭ Major', color:'#4f8f6b', colorName:'Green',
+   zodiac:'Leo', organTime:'3–5 PM', organ:'Bladder', polarity:'Yang'},
+  {month:'August', key:'D♭ Major', color:'#3f9e9e', colorName:'Blue-Green',
+   zodiac:'Virgo', organTime:'5–7 PM', organ:'Kidney', polarity:'Yin'},
+  {month:'September', key:'A♭ Major', color:'#3f7ea8', colorName:'Blue',
+   zodiac:'Libra', organTime:'7–9 PM', organ:'Pericardium', polarity:'Yin'},
+  {month:'October', key:'E♭ Major', color:'#5a5aa0', colorName:'Blue-Violet',
+   zodiac:'Scorpio', organTime:'9–11 PM', organ:'Triple Burner', polarity:'Yang'},
+  {month:'November', key:'B♭ Major', color:'#8a5aa8', colorName:'Violet',
+   zodiac:'Sagittarius', organTime:'11 PM–1 AM', organ:'Gallbladder', polarity:'Yang'},
+  {month:'December', key:'F Major', color:'#a8508f', colorName:'Red-Violet',
+   zodiac:'Capricorn', organTime:'1–3 AM', organ:'Liver', polarity:'Yin'}
+];
+
+function twelveFoldWheelSVG(){
+  const cx=100, cy=100, r=82;
+  let dots = '';
+  TWELVE_FOLD.forEach((p,i)=>{
+    const angle = (i/12)*2*Math.PI - Math.PI/2;
+    const x = (cx + r*Math.cos(angle)).toFixed(2);
+    const y = (cy + r*Math.sin(angle)).toFixed(2);
+    dots += `<circle cx="${x}" cy="${y}" r="8" fill="${p.color}" opacity="0.9"/>`;
+  });
+  return `<svg viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="82" fill="none" stroke="rgba(242,237,224,0.12)" stroke-width="1"/>
+    ${dots}
+  </svg>`;
+}
 
 const PRONUNCIATION_RULES = [
   {sound:'ā ē ī ō ū', name:'Macrons', desc:'A macron doubles the vowel length — hold it. "Mātauranga" (knowledge) is "maa-tau-rung-a", not a short "a".'},
@@ -2429,6 +2513,26 @@ IKAROA_STARS.forEach(s=>{
 });
 
 /* =========================================================
+   TWELVEFOLD WHEEL
+========================================================= */
+document.getElementById('twelvefoldWheel').innerHTML = twelveFoldWheelSVG();
+const tfLegend = document.getElementById('twelvefoldLegend');
+TWELVE_FOLD.forEach(p=>{
+  const card = document.createElement('div');
+  card.className = 'tf-card';
+  const polClass = p.polarity==='Yin' ? 'tf-yin' : 'tf-yang';
+  card.innerHTML = `
+    <div class="tf-card-top">
+      <span class="tf-dot" style="background:${p.color}"></span>
+      <div><div class="tf-month">${p.month}</div><div class="tf-key">${p.key} · ${p.colorName}</div></div>
+    </div>
+    <div class="tf-line">♈ Zodiac: <b>${p.zodiac}</b></div>
+    <div class="tf-line">☯ Daoist Clock: <b>${p.organTime}</b> — ${p.organ} (<span class="${polClass}">${p.polarity}</span>)</div>
+  `;
+  tfLegend.appendChild(card);
+});
+
+/* =========================================================
    TAONGA PUORO / KAITIAKI — cards with click-to-upload photo frames
 ========================================================= */
 function renderCultGrid(containerId, data, icons, slotPrefix){
@@ -2861,9 +2965,20 @@ HOWTO_STEPS.forEach((s,i)=>{
    PATHWAYS
 ========================================================= */
 const pathFlow = document.getElementById('pathFlow');
+function weekOrder(){
+  const dayOrder = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+  return [...CHAKRAS].sort((a,b)=> dayOrder.indexOf(a.day) - dayOrder.indexOf(b.day));
+}
+
 function renderPath(dir){
-  const notes = dir==='asc' ? ASCEND_NOTES : DESCEND_NOTES;
-  const order = dir==='asc' ? CHAKRAS : [...CHAKRAS].reverse();
+  let order, notes;
+  if(dir==='week'){
+    order = weekOrder();
+    notes = order.map(c=>({t:`${c.day} — ${c.title.replace('The ','')}`, s:c.theme}));
+  } else {
+    notes = dir==='asc' ? ASCEND_NOTES : DESCEND_NOTES;
+    order = dir==='asc' ? CHAKRAS : [...CHAKRAS].reverse();
+  }
   pathFlow.innerHTML = '';
   notes.forEach((n,i)=>{
     const c = order[i];
@@ -3000,7 +3115,7 @@ document.addEventListener('click', (e)=>{
 // arpeggio
 document.getElementById('playArpeggio').addEventListener('click', ()=>{
   const activeDir = document.querySelector('.path-toggle button.active').dataset.dir;
-  const order = activeDir==='asc' ? CHAKRAS : [...CHAKRAS].reverse();
+  const order = activeDir==='week' ? weekOrder() : (activeDir==='asc' ? CHAKRAS : [...CHAKRAS].reverse());
   let i=0;
   ensureCtx();
   function step(){
